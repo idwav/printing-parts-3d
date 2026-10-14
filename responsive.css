@@ -7,6 +7,7 @@
     margin:0!important; padding-inline:24px!important; border-inline:0!important; text-align:start!important;
   }
 }
+
 @media (max-width: 1024px) {
   :root { --pad:24px; --gutter:24px; --mobile-line:#d2d0ca; }
   html { scroll-padding-top:76px; }
@@ -353,4 +354,96 @@
     white-space:normal!important;
   }
   .lang-en .hero .hero-copy h1 span { white-space:normal!important; }
+}
+
+/* Contact — compact iPhone rhythm with a larger, safe submit target. */
+@media (max-width:620px) {
+  .page-contact .contact-section .contact-layout {
+    min-height:calc(100svh - 76px)!important;
+    grid-template-rows:auto minmax(464px,1fr)!important;
+  }
+  .page-contact .contact-panel {
+    padding:20px 22px!important;
+    text-align:right!important;
+  }
+  .page-contact .contact-panel h1 {
+    width:100%!important;
+    margin:0 0 12px!important;
+    font-size:30px!important;
+    line-height:1.02!important;
+    letter-spacing:-.035em!important;
+    text-align:right!important;
+  }
+  .page-contact .contact-panel p {
+    width:100%!important;
+    max-width:none!important;
+    font-size:14px!important;
+    line-height:1.45!important;
+    text-align:right!important;
+  }
+  .page-contact .contact-details {
+    width:100%!important;
+    margin-top:12px!important;
+    padding-top:12px!important;
+    line-height:1.4!important;
+    text-align:right!important;
+  }
+  .page-contact .form-grid {
+    flex:1 0 360px!important;
+    height:auto!important;
+    grid-template-rows:repeat(4,minmax(54px,1fr)) minmax(88px,1.6fr) minmax(56px,1fr)!important;
+  }
+  .page-contact .contact-form {
+    display:flex!important;
+    flex-direction:column!important;
+    height:auto!important;
+    overflow:visible!important;
+  }
+  .page-contact .field,
+  .page-contact .field:nth-child(even) {
+    min-height:0!important;
+    padding:10px 22px!important;
+  }
+  .page-contact .field-project { min-height:0!important; }
+  .page-contact .field-project textarea { min-height:54px!important; padding:0!important; }
+  .page-contact .field.file-field { padding:0!important; }
+  .page-contact .file-field>label { padding:0 22px!important; min-height:56px!important; box-sizing:border-box!important; }
+  .page-contact .contact-form .primary-action {
+    flex-shrink:0!important;
+    box-sizing:border-box!important;
+    min-height:calc(104px + env(safe-area-inset-bottom,0px))!important;
+    padding:18px 22px calc(18px + env(safe-area-inset-bottom,0px))!important;
+    align-items:center!important;
+    font-size:17px!important;
+  }
+  .page-contact .form-status:empty { display:none!important; }
+}
+
+/* Capabilities & materials: copy always precedes the hero image on touch layouts. */
+@media (max-width:1024px) {
+  .page-materials .materials-hero {
+    grid-template-columns:1fr!important;
+    grid-template-areas:"copy" "visual"!important;
+    min-height:0!important;
+  }
+  .page-materials .materials-hero__copy {
+    grid-area:copy!important;
+    padding:38px 24px!important;
+  }
+  .page-materials .materials-hero__media {
+    grid-area:visual!important;
+    width:calc(100% - 24px)!important;
+    height:44svh!important;
+    min-height:300px!important;
+    margin:12px!important;
+  }
+}
+@media (max-width:620px) {
+  .page-materials .materials-hero__copy { padding:30px 22px!important; }
+  .page-materials .materials-hero__media {
+    width:calc(100% - 20px)!important;
+    height:36svh!important;
+    min-height:230px!important;
+    margin:10px!important;
+  }
 }

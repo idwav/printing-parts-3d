@@ -18,8 +18,8 @@ menuLinks.forEach((link) => link.addEventListener('click', closeMenu));
 const languageSelect = document.querySelector('.language-select');
 const headerNavLinks = document.querySelectorAll('.topbar > nav a');
 const headerLabels = {
-  he: ['אודות', 'יכולות וחומרים', 'צור קשר'],
-  en: ['About', 'Capabilities & Materials', 'Contact'],
+  he: {'about.html':'אודות', 'technologies.html':'טכנולוגיות', 'materials.html':'יכולות וחומרים', 'contact.html':'צור קשר'},
+  en: {'about.html':'About', 'technologies.html':'Technologies', 'materials.html':'Capabilities & Materials', 'contact.html':'Contact'},
 };
 
 const englishCopy = {
@@ -133,7 +133,8 @@ function setHeaderLanguage(language) {
   const nextLanguage = language === 'en' ? 'en' : 'he';
   translateInnerPage(nextLanguage);
   headerNavLinks.forEach((link, index) => {
-    if (headerLabels[nextLanguage][index]) link.textContent = headerLabels[nextLanguage][index];
+    const page = new URL(link.href, location.href).pathname.split('/').pop();
+    if (headerLabels[nextLanguage][page]) link.textContent = headerLabels[nextLanguage][page];
   });
   if (languageSelect) {
     languageSelect.value = nextLanguage;
