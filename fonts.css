@@ -1,0 +1,15 @@
+@font-face{
+  font-family:"Cousine Local";
+  src:url("assets/fonts/cousine/Cousine-Regular.ttf") format("truetype");
+  font-style:normal;
+  font-weight:400 600;
+  font-display:swap;
+}
+
+@font-face{
+  font-family:"Cousine Local";
+  src:url("assets/fonts/cousine/Cousine-Bold.ttf") format("truetype");
+  font-style:normal;
+  font-weight:700 900;
+  font-display:swap;
+}

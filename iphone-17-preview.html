@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>iPhone 17 Preview — Printing Parts 3D</title>
+  <style>
+    *{box-sizing:border-box}
+    html,body{min-height:100%;margin:0}
+    body{display:grid;place-items:center;padding:32px;background:#e8e7e2;color:#252833;font-family:Arial,sans-serif}
+    .preview{display:grid;grid-template-columns:auto minmax(210px,280px);gap:32px;align-items:center}
+    .phone{position:relative;width:438px;padding:18px;border:1px solid #16181e;border-radius:58px;background:#252833;box-shadow:0 28px 80px rgba(37,40,51,.24)}
+    .screen{width:402px;height:874px;overflow:hidden;border-radius:42px;background:#fff}
+    iframe{display:block;width:402px;height:874px;border:0;background:#fff}
+    .island{position:absolute;z-index:2;top:29px;left:50%;width:112px;height:31px;border-radius:18px;background:#0b0c0f;transform:translateX(-50%);pointer-events:none}
+    .meta{direction:rtl;text-align:right}
+    .meta strong{display:block;margin-bottom:12px;font-size:22px;font-weight:400}
+    .meta span{display:block;color:#696b70;font-size:14px;line-height:1.6}
+    .meta a{display:inline-flex;margin-top:24px;padding-bottom:5px;border-bottom:1px solid #ff7100;color:#252833;text-decoration:none}
+    @media(max-width:780px){
+      body{display:block;padding:0;background:#252833}
+      .preview{display:block}
+      .phone{width:100%;padding:0;border:0;border-radius:0;box-shadow:none}
+      .screen,iframe{width:100%;height:100svh;border-radius:0}
+      .island,.meta{display:none}
+    }
+  </style>
+</head>
+<body>
+  <main class="preview">
+    <section class="phone" aria-label="תצוגת iPhone 17 בגודל 402 על 874 פיקסלים">
+      <i class="island" aria-hidden="true"></i>
+      <div class="screen"><iframe src="index.html#top" title="Printing Parts 3D — iPhone 17"></iframe></div>
+    </section>
+    <aside class="meta"><strong>תצוגת iPhone 17</strong><span>Viewport מדויק: 402 × 874<br>יחס תצוגה: 19.6:9</span><a href="index.html#top">פתיחת האתר ללא המסגרת</a></aside>
+  </main>
+</body>
+</html>

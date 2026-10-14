@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <script>document.documentElement.classList.add('js');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101315">
+  <link rel="icon" href="data:,">
+  <title>Hero Full Width | Printing Parts 3D</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --white: #fff;
+      --ink: #252833;
+      --ink-soft: #5f626b;
+      --orange: #ff7100;
+      --paper: #f5f5f1;
+      --paper-deep: #ecece7;
+      --line-dark: rgba(23, 25, 35, .22);
+      --grid: rgba(255, 255, 255, .105);
+      --gutter: clamp(22px, 4vw, 68px);
+    }
+
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      background: #f5f5f3;
+      color: var(--white);
+      font-family: "Assistant", Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; }
+    figure { margin: 0; }
+    img { display: block; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
+
+    .hero {
+      min-height: 100svh;
+      padding: 0;
+    }
+
+    .hero-frame {
+      position: relative;
+      display: grid;
+      width: 100%;
+      min-height: 100svh;
+      grid-template-rows: auto 1fr auto;
+      overflow: hidden;
+      border: 0;
+      border-radius: 0;
+      background: #252833;
+      clip-path: inset(0);
+      will-change: clip-path;
+    }
+
+    .hero-video,
+    .hero-tone,
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-video {
+      object-fit: cover;
+      object-position: center 50%;
+      filter: grayscale(.18) brightness(.62) contrast(1.14);
+    }
+
+    .hero-tone { background: rgba(37, 40, 51, .18); }
+    .hero-grid {
+      background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 52px 52px;
+      pointer-events: none;
+    }
+
+    .hero-nav,
+    .hero-main,
+    .hero-bottom { position: relative; z-index: 3; }
+
+    .hero-nav {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 30px;
+      padding: 24px var(--gutter);
+    }
+
+    .brand {
+      justify-self: start;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      direction: ltr;
+      text-decoration: none;
+    }
+
+    .brand-mark { position: relative; width: 42px; height: 34px; }
+    .brand-mark i,
+    .brand-mark::before,
+    .brand-mark::after {
+      position: absolute;
+      right: 0;
+      height: 9px;
+      border-radius: 2px;
+      background: var(--orange);
+      content: "";
+    }
+    .brand-mark::before { top: 0; width: 24px; }
+    .brand-mark i { top: 12px; width: 33px; }
+    .brand-mark::after { top: 24px; width: 42px; }
+    .brand strong { font-size: 18px; font-weight: 700; white-space: nowrap; }
+
+    .nav-links {
+      display: flex;
+      gap: clamp(24px, 3vw, 48px);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .nav-links a { font-size: 14px; font-weight: 500; text-decoration: none; }
+    .nav-links a:hover { color: var(--orange); }
+
+    .nav-action {
+      justify-self: end;
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      gap: 18px;
+      padding: 0 22px;
+      border-radius: 24px;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .nav-action span {
+      display: grid;
+      width: 28px;
+      height: 28px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 19px;
+    }
+
+    .hero-main {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: clamp(46px, 8vh, 92px) var(--gutter) 40px;
+    }
+
+    .hero-copy { max-width: min(780px, 64vw); }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 0 0 22px;
+      color: var(--orange);
+      font-size: 17px;
+      font-weight: 600;
+    }
+    .eyebrow::after { width: 54px; height: 1px; background: currentColor; content: ""; }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(64px, 7.5vw, 118px);
+      font-weight: 400;
+      line-height: .91;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+    h1 em { color: var(--orange); font-style: normal; }
+
+    .hero-summary {
+      max-width: 550px;
+      margin: 28px 0 0;
+      color: rgba(255, 255, 255, .86);
+      font-size: clamp(19px, 1.7vw, 27px);
+      font-weight: 300;
+      line-height: 1.45;
+    }
+
+    .hero-primary-action {
+      display: inline-flex;
+      min-height: 58px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 34px;
+      margin-top: 30px;
+      padding: 0 26px;
+      border: 1px solid var(--orange);
+      border-radius: 4px;
+      background: var(--orange);
+      color: var(--ink);
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .hero-primary-action span { font-size: 27px; font-weight: 300; }
+
+    .hero-bottom {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 40px;
+      padding: 24px var(--gutter) 34px;
+    }
+
+    .feature-list {
+      display: flex;
+      gap: clamp(24px, 4vw, 64px);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .feature-list li {
+      display: grid;
+      grid-template-columns: auto;
+      gap: 2px;
+      min-width: 165px;
+      padding-right: 18px;
+      border-right: 1px solid rgba(255,255,255,.34);
+    }
+    .feature-list b { color: var(--orange); font-size: clamp(44px, 4.2vw, 70px); font-weight: 300; line-height: .86; }
+    .feature-list strong { margin-top: 9px; font-size: 16px; font-weight: 600; }
+    .feature-list span { color: rgba(255,255,255,.68); font-size: 12px; font-weight: 300; }
+
+    .bottom-statement { text-align: left; direction: rtl; }
+    .bottom-statement strong { display: block; font-size: clamp(24px, 2.4vw, 38px); font-weight: 400; }
+    .bottom-statement span { color: rgba(255,255,255,.68); font-size: 13px; }
+
+    .cross {
+      position: absolute;
+      z-index: 2;
+      width: 30px;
+      height: 30px;
+      opacity: .55;
+    }
+    .cross::before, .cross::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: white;
+      content: "";
+      transform: translate(-50%, -50%);
+    }
+    .cross::before { width: 30px; height: 1px; }
+    .cross::after { width: 1px; height: 30px; }
+    .cross-a { top: 22%; left: 29%; }
+    .cross-b { right: 35%; bottom: 20%; }
+
+    /* Editorial engineering system */
+    .site-content {
+      background: var(--paper);
+      color: var(--ink);
+      direction: rtl;
+    }
+
+    .engineering-section {
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid var(--line-dark);
+      background-color: var(--paper);
+      background-image:
+        linear-gradient(rgba(23, 25, 35, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(23, 25, 35, .045) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    .section-kicker {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin: 0 0 24px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .section-kicker::before { width: 48px; height: 1px; background: var(--ink); content: ""; }
+    .section-kicker b { color: var(--orange); font-size: 15px; font-weight: 700; }
+
+    .section-heading {
+      margin: 0;
+      font-size: clamp(48px, 5.3vw, 86px);
+      font-weight: 500;
+      line-height: .93;
+      letter-spacing: 0;
+    }
+    .section-heading .dot { color: var(--orange); }
+    .section-lead { margin: 28px 0 0; color: var(--ink-soft); font-size: clamp(18px, 1.45vw, 24px); font-weight: 300; line-height: 1.55; }
+
+    .tech-label {
+      direction: ltr;
+      color: #6d7077;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+      line-height: 1.55;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .tech-label::after { display: block; width: 38px; height: 2px; margin-top: 11px; background: var(--orange); content: ""; }
+
+    .process-section { display: grid; min-height: 920px; grid-template-columns: minmax(0, 1.06fr) minmax(420px, .94fr); }
+    .process-visual {
+      position: relative;
+      min-height: 820px;
+      overflow: hidden;
+      border-left: 1px solid var(--line-dark);
+    }
+    .process-visual img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.08); transition: filter .55s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+    .process-visual:hover img { filter: grayscale(.15) contrast(1.04); transform: scale(1.025); }
+    .process-visual::after {
+      position: absolute;
+      inset: auto 7% 7% auto;
+      width: min(36%, 340px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(255,255,255,.72);
+      background: rgba(255,113,0,.92);
+      clip-path: polygon(0 0, 100% 0, 100% 82%, 82% 82%, 82% 100%, 0 100%);
+      content: "";
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+    .process-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(70px, 8vw, 140px) var(--gutter); }
+    .process-copy .section-lead { max-width: 640px; }
+    .process-steps { margin: 60px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line-dark); }
+    .process-steps li { display: grid; grid-template-columns: 64px 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--line-dark); transition: padding .25s ease, background .25s ease; }
+    .process-steps li:hover { padding-inline: 16px; background: rgba(255,255,255,.6); }
+    .process-steps b { color: var(--orange); font-size: 16px; }
+    .process-steps h3 { margin: 0 0 5px; font-size: 24px; font-weight: 600; }
+    .process-steps p { margin: 0; color: var(--ink-soft); font-size: 16px; line-height: 1.55; }
+    .process-code { position: absolute; right: 28px; bottom: 24px; z-index: 2; color: rgba(255,255,255,.82); }
+
+    .about-section { display: grid; min-height: 790px; grid-template-columns: .92fr 1.08fr; }
+    .about-copy { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(70px, 8vw, 130px) var(--gutter) 38px; border-left: 1px solid var(--line-dark); }
+    .about-copy .section-lead { max-width: 720px; }
+    .about-meta { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin-top: 80px; }
+    .outline-action {
+      display: inline-flex;
+      min-height: 54px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      padding: 0 20px;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background .25s ease, color .25s ease;
+    }
+    .outline-action:hover { background: var(--ink); color: var(--white); }
+    .about-visual { position: relative; min-height: 790px; overflow: hidden; }
+    .about-visual img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); transition: filter .55s ease, transform .8s ease; }
+    .about-visual:hover img { filter: grayscale(.1); transform: scale(1.02); }
+    .about-visual::before { position: absolute; z-index: 2; top: 10%; left: 8%; width: 24%; aspect-ratio: 1; border-radius: 50%; background: var(--orange); content: ""; mix-blend-mode: screen; pointer-events: none; }
+    .about-caption { position: absolute; z-index: 3; right: 30px; bottom: 28px; padding: 10px 14px; background: var(--paper); color: var(--ink); font-size: 13px; }
+
+    .technology-section { padding: clamp(90px, 10vw, 160px) 0 0; }
+    .technology-heading { display: grid; grid-template-columns: 1fr 1fr; gap: 7vw; padding: 0 var(--gutter) clamp(60px, 7vw, 100px); }
+    .technology-heading .section-lead { max-width: 650px; }
+    .technology-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line-dark); }
+    .technology-card {
+      position: relative;
+      display: grid;
+      min-height: 610px;
+      grid-template-rows: 60px 1fr auto;
+      overflow: hidden;
+      border-left: 1px solid var(--line-dark);
+      transition: background .3s ease;
+    }
+    .technology-card:last-child { border-left: 0; }
+    .technology-card:hover, .technology-card:focus-within { background: #fff; }
+    .technology-card header { display: flex; align-items: center; justify-content: space-between; padding: 0 28px; border-bottom: 1px dashed var(--line-dark); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+    .technology-card header b { color: rgba(23,25,35,.38); }
+    .technology-visual { position: relative; min-height: 300px; overflow: hidden; }
+    .technology-visual img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.13); opacity: .82; transition: filter .45s ease, opacity .45s ease, transform .7s ease; }
+    .technology-card:hover img, .technology-card:focus-within img { filter: grayscale(.05); opacity: 1; transform: scale(1.035); }
+    .technology-card-content { min-height: 220px; padding: 32px 28px 42px; border-top: 1px solid var(--line-dark); }
+    .technology-card h3 { margin: 0 0 15px; font-size: clamp(34px, 3vw, 52px); font-weight: 500; line-height: 1; }
+    .technology-card p { max-width: 390px; margin: 0; color: var(--ink-soft); font-size: 16px; line-height: 1.55; }
+    .technology-card .hot-pixel { position: absolute; z-index: 2; top: 25%; right: 18%; width: 11px; height: 11px; background: var(--orange); transition: transform .3s ease; }
+    .technology-card:hover .hot-pixel { transform: rotate(45deg) scale(1.35); }
+
+    .materials-section { display: grid; min-height: 820px; grid-template-columns: minmax(0, 1fr) minmax(480px, .9fr); }
+    .materials-visual { position: relative; min-height: 820px; overflow: hidden; border-left: 1px solid var(--line-dark); }
+    .materials-visual img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.15); transition: filter .6s ease, transform .9s ease; }
+    .materials-visual:hover img { filter: grayscale(.15); transform: scale(1.025); }
+    .material-marker { position: absolute; z-index: 2; top: 28%; right: 38%; display: flex; align-items: center; gap: 12px; color: var(--ink); font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .material-marker::before { width: 72px; height: 1px; background: currentColor; content: ""; transform: rotate(-36deg); transform-origin: left; }
+    .materials-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(70px, 8vw, 130px) var(--gutter); }
+    .materials-list { margin: 55px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line-dark); }
+    .materials-list li { display: grid; grid-template-columns: 54px 1fr auto; align-items: center; gap: 18px; min-height: 72px; border-bottom: 1px solid var(--line-dark); font-size: 21px; transition: color .2s ease, padding .25s ease; }
+    .materials-list li:hover { padding-inline: 12px; color: var(--orange); }
+    .materials-list b { font-size: 13px; font-weight: 500; }
+    .materials-list span:last-child { color: var(--ink-soft); font-size: 13px; }
+
+    .closing-section { display: grid; grid-template-columns: 1fr auto; align-items: stretch; border-bottom: 1px solid var(--line-dark); background: var(--ink); color: var(--white); }
+    .closing-copy { padding: clamp(65px, 8vw, 120px) var(--gutter); }
+    .closing-copy h2 { max-width: 950px; margin: 0; font-size: clamp(50px, 6.2vw, 96px); font-weight: 400; line-height: .95; }
+    .closing-action { display: flex; width: min(360px, 28vw); align-items: center; justify-content: space-between; padding: 38px; background: var(--orange); color: var(--ink); font-size: 22px; font-weight: 700; text-decoration: none; }
+    .closing-action span { font-size: 42px; font-weight: 300; }
+
+    .page-footer { display: flex; align-items: center; justify-content: space-between; gap: 30px; min-height: 96px; padding: 0 var(--gutter); background: var(--paper); color: var(--ink); border-bottom: 1px solid var(--line-dark); }
+    .page-footer .brand { color: var(--ink); }
+    .page-footer small { color: var(--ink-soft); }
+
+    .js .reveal-section { opacity: 0; transform: translateY(42px); }
+
+    @media (max-height: 800px) and (min-width: 761px) {
+      .hero-nav { padding-block: 16px; }
+      .hero-main { padding-block: 20px 12px; }
+      .eyebrow { margin-bottom: 14px; font-size: 15px; }
+      h1 { font-size: clamp(62px, 6.5vw, 84px); }
+      .hero-summary { margin-top: 16px; font-size: 20px; }
+      .hero-primary-action { min-height: 50px; margin-top: 17px; }
+      .hero-bottom { padding-block: 10px 18px; }
+      .feature-list b { font-size: 44px; }
+      .feature-list strong { margin-top: 5px; }
+      .bottom-statement strong { font-size: 27px; }
+    }
+
+    @media (max-width: 760px) {
+      .hero { padding: 0; }
+      .hero-frame { min-height: 100svh; border: 0; border-radius: 0; }
+      .hero-grid { background-size: 38px 38px; }
+      .hero-video { object-position: 57% center; }
+      .hero-nav { grid-template-columns: 1fr auto; padding: 19px 20px; }
+      .nav-links { display: none; }
+      .brand strong { font-size: 15px; }
+      .brand-mark { width: 34px; height: 27px; }
+      .brand-mark::before { width: 20px; height: 7px; }
+      .brand-mark i { top: 10px; width: 27px; height: 7px; }
+      .brand-mark::after { top: 20px; width: 34px; height: 7px; }
+      .nav-action { min-height: 40px; padding: 0 15px; font-size: 12px; }
+      .nav-action span { width: 24px; height: 24px; }
+
+      .hero-main { padding: 72px 20px 24px; }
+      .hero-copy { max-width: 100%; }
+      .eyebrow { margin-bottom: 16px; font-size: 14px; }
+      h1 { max-width: 350px; font-size: clamp(54px, 16vw, 72px); }
+      .hero-summary { max-width: 325px; margin-top: 20px; font-size: 18px; }
+      .hero-primary-action { min-height: 52px; margin-top: 22px; padding-inline: 19px; font-size: 15px; }
+
+      .hero-bottom { grid-template-columns: 1fr; gap: 20px; padding: 20px 20px 28px; }
+      .feature-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      .feature-list li { min-width: 0; padding-right: 12px; }
+      .feature-list b { font-size: 42px; }
+      .feature-list li:last-child { display: none; }
+      .bottom-statement { text-align: right; }
+      .bottom-statement strong { font-size: 24px; }
+      .cross-a { top: 19%; left: 14%; }
+      .cross-b { display: none; }
+
+      .section-heading { font-size: clamp(44px, 13vw, 62px); }
+      .section-lead { font-size: 18px; }
+      .process-section, .about-section, .materials-section { grid-template-columns: 1fr; min-height: auto; }
+      .process-visual, .about-visual, .materials-visual { min-height: 440px; border-left: 0; border-bottom: 1px solid var(--line-dark); }
+      .process-copy, .about-copy, .materials-copy { padding: 70px 20px; }
+      .process-steps { margin-top: 38px; }
+      .process-steps li { grid-template-columns: 44px 1fr; gap: 12px; }
+      .process-steps h3 { font-size: 20px; }
+      .about-copy { order: 2; }
+      .about-visual { order: 1; }
+      .about-meta { align-items: flex-start; flex-direction: column; margin-top: 46px; }
+      .technology-section { padding-top: 78px; }
+      .technology-heading { grid-template-columns: 1fr; gap: 24px; padding: 0 20px 50px; }
+      .technology-grid { grid-template-columns: 1fr; }
+      .technology-card { min-height: 570px; border-left: 0; border-bottom: 1px solid var(--line-dark); }
+      .technology-card:last-child { border-bottom: 0; }
+      .technology-visual { min-height: 320px; }
+      .materials-visual { min-height: 480px; }
+      .materials-list li { grid-template-columns: 42px 1fr; }
+      .materials-list span:last-child { grid-column: 2; padding-bottom: 14px; }
+      .closing-section { grid-template-columns: 1fr; }
+      .closing-copy { padding: 70px 20px; }
+      .closing-action { width: 100%; min-height: 100px; padding: 0 20px; }
+      .page-footer { align-items: flex-start; flex-direction: column; padding: 28px 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body id="top">
+  <main class="hero">
+    <section class="hero-frame" aria-labelledby="hero-variant-title">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/plates/hero-video.jpg" aria-label="מדפסת תלת מימד תעשייתית בפעולה">
+        <source src="assets/video/hero-3d-printing.mp4" type="video/mp4">
+      </video>
+      <div class="hero-tone" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <span class="cross cross-a" aria-hidden="true"></span>
+      <span class="cross cross-b" aria-hidden="true"></span>
+
+      <nav class="hero-nav" aria-label="ניווט ראשי">
+        <a class="brand" href="index.html" aria-label="Printing Parts 3D - דף הבית">
+          <span class="brand-mark" aria-hidden="true"><i></i></span>
+          <strong>Printing Parts 3D</strong>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#about">אודות</a></li>
+          <li><a href="#technologies">טכנולוגיות</a></li>
+          <li><a href="#process">תהליך העבודה</a></li>
+        </ul>
+        <a class="nav-action" href="contact.html#project-form">בדיקת פרויקט <span aria-hidden="true">↙</span></a>
+      </nav>
+
+      <div class="hero-main">
+        <div class="hero-copy">
+          <p class="eyebrow">פתרונות הנדסיים לתעשייה</p>
+          <h1 id="hero-variant-title">הדפסת תלת־ממד.<br>מרעיון לחלק<br>שעובד<em>.</em></h1>
+          <p class="hero-summary">תכנון, בחירת חומר וייצור מדויק לאבות טיפוס ולסדרות קטנות.</p>
+          <a class="hero-primary-action" href="contact.html#project-form">בדיקת התאמה לפרויקט <span aria-hidden="true">‹</span></a>
+        </div>
+      </div>
+
+      <div class="hero-bottom">
+        <ul class="feature-list" aria-label="יכולות מרכזיות">
+          <li><b>01</b><strong>תכנון הנדסי</strong><span>מהדרישה לגאומטריה</span></li>
+          <li><b>02</b><strong>אב טיפוס</strong><span>בדיקה לפני ייצור</span></li>
+          <li><b>03</b><strong>סדרות קטנות</strong><span>ייצור עקבי ומדויק</span></li>
+        </ul>
+        <div class="bottom-statement">
+          <strong>מתכננים נכון. מייצרים מדויק.</strong>
+          <span>פתרון אחד לכל תהליך פיתוח המוצר</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="site-content">
+      <section class="engineering-section process-section" id="process" aria-labelledby="process-heading">
+        <figure class="process-visual reveal-section">
+          <img src="assets/plates/process-image.jpg" alt="ייצור חלק פונקציונלי במדפסת תלת מימד" loading="lazy">
+        </figure>
+        <div class="process-copy reveal-section">
+          <p class="section-kicker"><b>02</b> תהליך העבודה</p>
+          <h2 class="section-heading" id="process-heading">מהצורך שלכם<br>לחלק שעובד<span class="dot">.</span></h2>
+          <p class="section-lead">אנו מספקים פתרונות תעשייתיים לכלל תהליך פיתוח המוצר, מתכנון ועיצוב של אב טיפוס, הדפסתו ועד להדפסה תעשייתית של סדרות קטנות.</p>
+          <ol class="process-steps">
+            <li><b>01</b><div><h3>מבינים את הצורך</h3><p>מגדירים שימוש, עומסים, סביבת עבודה, דיוק וכמות.</p></div></li>
+            <li><b>02</b><div><h3>מתכננים ומחליטים</h3><p>מתאימים גאומטריה, חומר וטכנולוגיית ייצור לתוצאה הנדרשת.</p></div></li>
+            <li><b>03</b><div><h3>מייצרים ומספקים</h3><p>מדפיסים, בודקים ומתקדמים מאב טיפוס לסדרה קצרה.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="engineering-section about-section" id="about" aria-labelledby="about-heading">
+        <div class="about-copy reveal-section">
+          <div>
+            <p class="section-kicker"><b>03</b> עלינו</p>
+            <h2 class="section-heading" id="about-heading">מאחורי כל חלק,<br>יש חשיבה הנדסית<span class="dot">.</span></h2>
+            <p class="section-lead">אנחנו מתמקדים בפרויקטים הנדסיים מורכבים ומחברים בין הבנת הצורך, תכנון ברמה גבוהה ויכולת ייצור מדויקת. כך מצמצמים טעויות, עיכובים וסבבי ניסוי מיותרים.</p>
+          </div>
+          <div class="about-meta">
+            <a class="outline-action" href="contact.html#project-form">בואו נכיר <span aria-hidden="true">←</span></a>
+            <div class="tech-label">IDEAS<br>MATERIALS<br>REAL PARTS</div>
+          </div>
+        </div>
+        <figure class="about-visual reveal-section">
+          <img src="assets/plates/about-engineering.jpg" alt="צוות הנדסי בוחן חלק מודפס" loading="lazy">
+        </figure>
+      </section>
+
+      <section class="engineering-section technology-section" id="technologies" aria-labelledby="technology-heading">
+        <div class="technology-heading reveal-section">
+          <div>
+            <p class="section-kicker"><b>04</b> טכנולוגיות</p>
+            <h2 class="section-heading" id="technology-heading">הטכנולוגיה הנכונה<br>לכל יישום<span class="dot">.</span></h2>
+          </div>
+          <p class="section-lead">אנחנו מתאימים את שיטת הייצור לדרישות החלק, לרמת הדיוק, לחומר ולכמות, במקום לאלץ כל פרויקט להתאים לטכנולוגיה אחת.</p>
+        </div>
+        <div class="technology-grid reveal-section">
+          <article class="technology-card" tabindex="0">
+            <header><span>FDM</span><b>[01]</b></header>
+            <div class="technology-visual"><span class="hot-pixel"></span><img src="assets/plates/fdm-image.jpg" alt="הדפסת FDM בתהליך" loading="lazy"></div>
+            <div class="technology-card-content"><h3>הדפסת FDM</h3><p>חלקים פונקציונליים ועמידים שמתאימים לאב טיפוס ולסדרות קצרות.</p></div>
+          </article>
+          <article class="technology-card" tabindex="0">
+            <header><span>MSLA</span><b>[02]</b></header>
+            <div class="technology-visual"><span class="hot-pixel"></span><img src="assets/plates/msla-image-clean.jpg" alt="הדפסת שרף MSLA" loading="lazy"></div>
+            <div class="technology-card-content"><h3>הדפסת MSLA</h3><p>פרטים מדויקים וגימור חלק ליישומים שדורשים רזולוציה גבוהה.</p></div>
+          </article>
+          <article class="technology-card" tabindex="0">
+            <header><span>LASER</span><b>[03]</b></header>
+            <div class="technology-visual"><span class="hot-pixel"></span><img src="assets/plates/laser-cutting.jpg" alt="חיתוך לייזר מדויק" loading="lazy"></div>
+            <div class="technology-card-content"><h3>חיתוך לייזר</h3><p>חיתוך מדויק של אקריליק, עץ וחומרי לוח לחלקים וגימורים מורכבים.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="engineering-section materials-section" id="materials" aria-labelledby="materials-heading">
+        <figure class="materials-visual reveal-section">
+          <img src="assets/plates/material-library.jpg" alt="מבחר חומרי גלם להדפסת תלת מימד" loading="lazy">
+        </figure>
+        <div class="materials-copy reveal-section">
+          <p class="section-kicker"><b>05</b> חומרים</p>
+          <h2 class="section-heading" id="materials-heading">החומר הנכון<br>לכל חלק<span class="dot">.</span></h2>
+          <p class="section-lead">בחירת חומר מתחילה בתפקוד: חוזק, חום, גמישות, סביבת עבודה ורמת הגימור הנדרשת.</p>
+          <ul class="materials-list">
+            <li><b>01</b><span>PLA / PLA+</span><span>אב טיפוס ודגמים</span></li>
+            <li><b>02</b><span>PETG</span><span>חוזק ועמידות</span></li>
+            <li><b>03</b><span>ABS / ASA</span><span>חום ותנאי חוץ</span></li>
+            <li><b>04</b><span>TPU</span><span>גמישות וספיגת זעזועים</span></li>
+            <li><b>05</b><span>Engineering Resin</span><span>דיוק וגימור גבוה</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="closing-section" id="contact" aria-labelledby="contact-heading">
+        <div class="closing-copy reveal-section">
+          <h2 id="contact-heading">יש לכם חלק שצריך לעבוד<span style="color:var(--orange)">?</span></h2>
+        </div>
+        <a class="closing-action reveal-section" href="contact.html#project-form">שלחו פרטים לבדיקה <span aria-hidden="true">←</span></a>
+      </section>
+
+      <footer class="page-footer">
+        <a class="brand" href="#top" aria-label="חזרה לראש העמוד"><span class="brand-mark" aria-hidden="true"><i></i></span><strong>Printing Parts 3D</strong></a>
+        <small>תכנון הנדסי · הדפסת תלת־ממד · סדרות קטנות</small>
+      </footer>
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reducedMotion && window.gsap) {
+      const intro = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      intro
+        .fromTo('.hero-frame',
+          { clipPath: 'inset(0 0 0 100%)' },
+          { clipPath: 'inset(0 0 0 0%)', duration: 1.2, ease: 'power4.inOut' }
+        )
+        .from('.hero-nav > *', { opacity: 0, y: -16, duration: .55, stagger: .08 }, '-=.2')
+        .from('.eyebrow', { opacity: 0, y: 18, duration: .5 }, '-=.15')
+        .from('h1', { opacity: 0, y: 24, duration: .75 }, '-=.28')
+        .from('.hero-summary', { opacity: 0, y: 20, duration: .6 }, '-=.4')
+        .from('.hero-primary-action', { opacity: 0, y: 20, duration: .55 }, '-=.34')
+        .from('.hero-bottom > *', { opacity: 0, y: 28, duration: .65, stagger: .12 }, '-=.25');
+
+      document.querySelectorAll('.nav-action, .nav-links a, .hero-primary-action').forEach((element) => {
+        element.addEventListener('pointerenter', () => gsap.to(element, { y: -2, duration: .2, overwrite: 'auto' }));
+        element.addEventListener('pointerleave', () => gsap.to(element, { y: 0, duration: .25, overwrite: 'auto' }));
+      });
+
+    }
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        entry.target.style.transition = 'opacity .8s ease, transform .8s cubic-bezier(.2,.75,.2,1)';
+        revealObserver.unobserve(entry.target);
+      });
+    }, { threshold: .12 });
+
+    document.querySelectorAll('.reveal-section').forEach((element) => revealObserver.observe(element));
+  </script>
+</body>
+</html>

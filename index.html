@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#252833">
+  <meta name="description" content="Printing Parts 3D — תכנון, פיתוח וייצור חלקים בהדפסת תלת־ממד לתעשייה.">
+  <title>Printing Parts 3D — הנדסה שמקבלת צורה</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.typekit.net/hop1eit.css">
+  <link rel="stylesheet" href="styles.css?v=20261014-1">
+  <link rel="stylesheet" href="shared-header.css?v=20261014-1">
+  <link rel="stylesheet" href="shared-cta.css?v=20261014-1">
+  <script>document.documentElement.classList.add('motion-ready')</script>
+  <link rel="stylesheet" href="responsive.css?v=20261014-3">
+</head>
+<body>
+  <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;overflow:hidden">
+    <defs>
+      <clipPath id="brand-stepped-rounded" clipPathUnits="objectBoundingBox">
+        <path id="brand-step-path" d="M .03 0 H .82 Q .84 0 .84 .02 V .035 Q .84 .05 .86 .05 H .88 Q .90 .05 .90 .07 V .085 Q .90 .10 .92 .10 H .94 Q .96 .10 .96 .12 V .135 Q .96 .15 .98 .15 Q 1 .15 1 .17 V .94 Q 1 1 .94 1 H .18 Q .16 1 .16 .98 V .965 Q .16 .95 .14 .95 H .12 Q .10 .95 .10 .93 V .915 Q .10 .90 .08 .90 H .06 Q .04 .90 .04 .88 V .865 Q .04 .85 .02 .85 Q 0 .85 0 .83 V .03 Q 0 0 .03 0 Z"/>
+      </clipPath>
+      <clipPath id="brand-stepped-mirror" clipPathUnits="objectBoundingBox">
+        <use href="#brand-step-path" transform="translate(1 0) scale(-1 1)"/>
+      </clipPath>
+      <clipPath id="brand-step-top" clipPathUnits="objectBoundingBox">
+        <path d="M .03 0 H .80 Q .82 0 .82 .02 V .04 Q .82 .055 .84 .055 H .87 Q .89 .055 .89 .075 V .10 Q .89 .115 .91 .115 H .94 Q .96 .115 .96 .135 V .15 Q .96 .17 .98 .17 Q 1 .17 1 .19 V .97 Q 1 1 .97 1 H .03 Q 0 1 0 .97 V .03 Q 0 0 .03 0 Z"/>
+      </clipPath>
+      <clipPath id="brand-step-bottom" clipPathUnits="objectBoundingBox">
+        <path d="M .03 0 H .97 Q 1 0 1 .03 V .97 Q 1 1 .97 1 H .20 Q .18 1 .18 .98 V .96 Q .18 .945 .16 .945 H .13 Q .11 .945 .11 .925 V .90 Q .11 .885 .09 .885 H .06 Q .04 .885 .04 .865 V .85 Q .04 .83 .02 .83 Q 0 .83 0 .81 V .03 Q 0 0 .03 0 Z"/>
+      </clipPath>
+      <clipPath id="brand-stepped-sharp" clipPathUnits="objectBoundingBox">
+        <path d="M 0 0 H .84 V .05 H .90 V .10 H .96 V .15 H 1 V 1 H .16 V .95 H .10 V .90 H .04 V .85 H 0 Z"/>
+      </clipPath>
+    </defs>
+  </svg>
+  <header class="topbar">
+    <a class="logo" href="#top" aria-label="Printing Parts 3D — דף הבית"><img src="assets/brand-logo.svg" alt="Printing Parts 3D"></a>
+    <nav aria-label="ניווט ראשי"><a href="about.html">אודות</a><a href="materials.html">יכולות וחומרים</a><a href="contact.html">צור קשר</a></nav>
+    <div class="top-actions"><label class="language-menu"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9S14.5 18.3 12 21M12 3C9.5 5.7 8.2 8.7 8.2 12S9.5 18.3 12 21"></path></svg><select class="language-select" aria-label="בחירת שפה"><option value="he">עברית</option><option value="en">English</option></select></label><a class="top-contact instagram-link" href="https://www.instagram.com/printing_parts_3d/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle class="instagram-dot" cx="17.4" cy="6.7" r="1"></circle></svg></a></div>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <video class="hero-media" autoplay muted loop playsinline poster="assets/plates/hero-video.jpg"><source src="assets/video/hero-beni.mp4" type="video/mp4"></video>
+      <div class="hero-overlay"></div><div class="hero-grid"></div>
+      <div class="hero-copy">
+        <h1>המרכז להדפסה <nobr>תלת־ממדית</nobr><br><span>למהנדסים, מעצבים ויזמים.</span></h1>
+        <p class="hero-lead">מתכנון הנדסי ועד חלק מוגמר — פתרונות הדפסה תלת־ממדית שנבנים סביב הדרישות האמיתיות של הפרויקט.</p>
+        <a class="cut-button" href="contact.html#project-form"><span>שלחו פרויקט לבדיקה</span><b>↙</b></a>
+      </div>
+    </section>
+    <section class="trusted" id="trusted" aria-label="לקוחות שנותנים בנו אמון">
+      <div class="trusted-copy"><strong>נותנים בנו אמון</strong><span>חברות ביטחוניות, תעשייתיות וטכנולוגיות</span></div>
+      <div class="trusted-logos">
+        <figure><img src="assets/clients/client-asset-110.svg" alt="לוגו לקוח"></figure>
+        <figure><img src="assets/clients/client-asset-120.svg" alt="לוגו לקוח"></figure>
+        <figure><img src="assets/clients/client-asset-140.svg" alt="לוגו לקוח"></figure>
+        <figure><img src="assets/clients/client-asset-150.svg" alt="לוגו לקוח"></figure>
+        <figure><img src="assets/clients/client-llazdo.svg" alt="לוגו לקוח"></figure>
+      </div>
+    </section>
+    <section class="statement dark-section">
+      <div class="statement-copy">
+        <h2>לא רק להדפיס קובץ.<br><em>לפתור את החלק.</em></h2>
+        <p>אנחנו מחברים תכנון, חומר וטכנולוגיית ייצור למהלך הנדסי אחד. בודקים את תנאי העבודה, מחדדים את הגאומטריה ומייצרים חלק שמתאים לשימוש שלו.</p>
+        <a class="text-link" href="about.html">על הדרך שלנו <span>←</span></a>
+      </div>
+      <figure class="statement-image brand-frame-test"><img src="assets/plates/functional-part-caliper-inspection.png" alt="בדיקת מידות של מכלול מודפס פונקציונלי באמצעות קליבר דיגיטלי"><i class="corner-plus corner-plus--tr" aria-hidden="true">+</i><i class="corner-plus corner-plus--tl" aria-hidden="true">+</i><i class="corner-plus corner-plus--br" aria-hidden="true">+</i><i class="corner-plus corner-plus--bl" aria-hidden="true">+</i></figure>
+    </section>
+    <section class="metrics" aria-label="נתונים מרכזיים">
+      <article><strong>20</strong><span>מדפסות<br>תעשייתיות</span></article><article><strong>30<span>+</span></strong><span>סוגי חומר<br>לבחירה</span></article><article><strong>1—1000</strong><span>מחלק בודד<br>ועד סדרה</span></article><article><strong>20<span>+</span></strong><span>שנות ניסיון<br>בתחום</span></article>
+    </section>
+    <section class="capabilities" id="capabilities">
+      <div class="section-heading"><h2>מערכת ייצור שלמה.<br>מהרעיון לחלק שעובד.</h2><p>כל מה שצריך כדי לעבור מדרישה לחלק עובד, עם כתובת אחת לאורך הדרך.</p><a class="cut-button" href="materials.html"><span>לכל היכולות</span><b>↙</b></a></div>
+      <div class="capability-list">
+        <a href="materials.html#services" class="cap-row"><span class="cap-icon icon-plan"><i></i><i></i><i></i></span><span class="cap-title">תכנון ומידול</span><span class="cap-desc">מפרט, שרטוט או רעיון הופכים למודל מדויק, מותאם לייצור ומוכן לבדיקה.</span><span class="cap-more">לעוד פרטים <b>↙</b></span></a>
+        <a href="materials.html#material-fit" class="cap-row"><span class="cap-icon icon-print"><i></i><i></i><i></i></span><span class="cap-title">הדפסת FDM</span><span class="cap-desc">חלקים פונקציונליים, אבות טיפוס וסדרות קצרות במגוון חומרים הנדסיים.</span><span class="cap-more">לעוד פרטים <b>↙</b></span></a>
+        <a href="materials.html#material-fit" class="cap-row"><span class="cap-icon icon-resin"><i></i><i></i><i></i></span><span class="cap-title">הדפסת MSLA</span><span class="cap-desc">פרטים מדויקים, גאומטריות עדינות וגימור חלק ברזולוציה גבוהה.</span><span class="cap-more">לעוד פרטים <b>↙</b></span></a>
+        <a href="materials.html" class="cap-row"><span class="cap-icon icon-material"><i></i><i></i><i></i></span><span class="cap-title">חומרים וגימור</span><span class="cap-desc">בחירה לפי תפקוד, חום, עומס, סביבת עבודה ורמת הגימור הנדרשת.</span><span class="cap-more">לעוד פרטים <b>↙</b></span></a>
+      </div>
+    </section>
+    <section class="process dark-section" id="process">
+      <div class="process-sticky">
+        <div class="process-visual">
+          <img class="is-active" src="assets/plates/process-intro-sketch.png" alt="סקיצה ראשונית מהרעיון לחלק">
+          <img src="assets/plates/process-understand-requirement.jpg" alt="מבינים את הדרישה ההנדסית">
+          <img src="assets/plates/process-plan-route.jpg" alt="בחירת חומרים ותכנון דרך הייצור">
+          <img src="assets/plates/process-build-check.jpg" alt="ייצור ובדיקת החלק">
+          <img src="assets/plates/process-delivery.png" alt="מסירת החלק המוגמר">
+          <span class="crosshair x1">+</span><span class="crosshair x2">+</span>
+        </div>
+        <div class="process-content">
+          <div class="process-copy-carousel">
+            <div class="process-intro is-active"><h2>מרעיון לחלק.<br><em>ארבע תחנות.</em></h2><p>תהליך הנדסי אחד, מהגדרת הצורך ועד לחלק שמוכן לעבוד.</p></div>
+            <ol>
+              <li><div class="process-step-group"><span>01</span><div><b>מבינים את הדרישה</b><small>שימוש, עומסים, כמות ולוחות זמנים.</small></div></div></li>
+              <li><div class="process-step-group"><span>02</span><div><b>מתכננים את הדרך</b><small>גאומטריה, חומר וטכנולוגיית ייצור.</small></div></div></li>
+              <li><div class="process-step-group"><span>03</span><div><b>מייצרים ובודקים</b><small>הדפסה, גימור ובקרת התוצאה.</small></div></div></li>
+              <li><div class="process-step-group"><span>04</span><div><b>מוסרים וממשיכים</b><small>מחלק ראשון ועד סדרה חוזרת.</small></div></div></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="materials" id="materials">
+      <div class="materials-head">
+        <div class="materials-heading"><h2>ההתאמה הנכונה<br><em>לכל יישום.</em></h2></div>
+        <div class="materials-copy"><p>החלק לא מתחיל במדפסת. הוא מתחיל בהחלטות הנכונות על חוזק, גמישות, דיוק, גימור וסביבת העבודה.</p><span>MATERIAL / APPLICATION / RESULT</span></div>
+      </div>
+      <div class="material-grid" aria-label="משפחות חומרים">
+        <article class="material-cell"><div class="material-mark mark-rigid"><i></i><i></i><i></i></div><strong>PLA / PETG</strong><small>אב־טיפוס וחלקים שימושיים</small></article>
+        <article class="material-cell"><div class="material-mark mark-heat"><i></i><i></i><i></i></div><strong>ABS / ASA</strong><small>עמידות בחום ובסביבה</small></article>
+        <article class="material-cell"><div class="material-mark mark-strong"><i></i><i></i><i></i></div><strong>NYLON</strong><small>חוזק ושחיקה לאורך זמן</small></article>
+        <article class="material-cell"><div class="material-mark mark-flex"><i></i><i></i><i></i></div><strong>TPU</strong><small>גמישות וספיגת אנרגיה</small></article>
+        <article class="material-cell"><div class="material-mark mark-detail"><i></i><i></i><i></i></div><strong>RESIN</strong><small>דיוק וגימור ברזולוציה גבוהה</small></article>
+      </div>
+    </section>
+    <section class="projects dark-section" id="projects"><div class="projects-head"><h2>מהנדסים.<br>מדפיסים.<br><em>מתקדמים.</em></h2></div><div class="project-grid"><article><img src="assets/plates/project-precise-details.jpg" alt="פרטים מדויקים בהדפסה תלת־ממדית"><div class="project-caption"><h3>פרטים מדויקים</h3></div></article><article><img src="assets/plates/project-fixtures.jpg" alt="מתקנים וכלי עזר מודפסים"><div class="project-caption"><h3>מתקנים וכלי עזר</h3></div></article><article><img src="assets/plates/project-functional.jpg" alt="חלק פונקציונלי מורכב"><div class="project-caption"><h3>חלקים פונקציונליים</h3></div></article></div></section>
+    <section class="site-cta" id="contact-cta"><div class="site-cta__content"><h2>יש לכם חלק<br>שצריך <em>לקרות?</em></h2><p>שלחו קובץ, שרטוט, תמונה או תיאור קצר. נבדוק את הנתונים ונחזור עם הצעד הבא.</p></div><a class="site-cta__action" href="contact.html#project-form"><span>מתחילים מכאן</span><b>↙</b></a></section>
+  </main>
+  <script>
+    const translations = {
+      he: {
+        nav:['אודות','יכולות וחומרים','צור קשר'],
+        eyebrow:'// ENGINEERING × ADDITIVE MANUFACTURING', hero:'המרכז להדפסה <nobr>תלת־ממדית</nobr><br><span>למהנדסים, מעצבים ויזמים.</span>', heroLead:'מתכנון הנדסי ועד חלק מוגמר — פתרונות הדפסה תלת־ממדית שנבנים סביב הדרישות האמיתיות של הפרויקט.', heroCta:'שלחו פרויקט לבדיקה',
+        trustedTitle:'נותנים בנו אמון', trustedText:'חברות ביטחוניות, תעשייתיות וטכנולוגיות',
+        statement:'לא רק להדפיס קובץ.<br><em>לפתור את החלק.</em>', statementText:'אנחנו מחברים תכנון, חומר וטכנולוגיית ייצור למהלך הנדסי אחד. בודקים את תנאי העבודה, מחדדים את הגאומטריה ומייצרים חלק שמתאים לשימוש שלו.', statementLink:'על הדרך שלנו',
+        metrics:[['מדפסות','תעשייתיות'],['סוגי חומר','לבחירה'],['מחלק בודד','ועד סדרה'],['שנות ניסיון','בתחום']],
+        system:'מערכת ייצור שלמה.<br>מהרעיון לחלק שעובד.', systemText:'כל מה שצריך כדי לעבור מדרישה לחלק עובד, עם כתובת אחת לאורך הדרך.', all:'לכל היכולות', more:'לעוד פרטים',
+        caps:[['תכנון ומידול','מפרט, שרטוט או רעיון הופכים למודל מדויק, מותאם לייצור ומוכן לבדיקה.'],['הדפסת FDM','חלקים פונקציונליים, אבות טיפוס וסדרות קצרות במגוון חומרים הנדסיים.'],['הדפסת MSLA','פרטים מדויקים, גאומטריות עדינות וגימור חלק ברזולוציה גבוהה.'],['חומרים וגימור','בחירה לפי תפקוד, חום, עומס, סביבת עבודה ורמת הגימור הנדרשת.']],
+        processIntro:'מרעיון לחלק.<br><em>ארבע תחנות.</em>', processIntroText:'תהליך הנדסי אחד, מהגדרת הצורך ועד לחלק שמוכן לעבוד.', steps:[['מבינים את הדרישה','שימוש, עומסים, כמות ולוחות זמנים.'],['מתכננים את הדרך','גאומטריה, חומר וטכנולוגיית ייצור.'],['מייצרים ובודקים','הדפסה, גימור ובקרת התוצאה.'],['מוסרים וממשיכים','מחלק ראשון ועד סדרה חוזרת.']],
+        materials:'ההתאמה הנכונה<br><em>לכל יישום.</em>', materialsText:'החלק לא מתחיל במדפסת. הוא מתחיל בהחלטות הנכונות על חוזק, גמישות, דיוק, גימור וסביבת העבודה.', materialCells:[['אב־טיפוס וחלקים שימושיים'],['עמידות בחום ובסביבה'],['חוזק ושחיקה לאורך זמן'],['גמישות וספיגת אנרגיה'],['דיוק וגימור ברזולוציה גבוהה']],
+        projects:'מהנדסים.<br>מדפיסים.<br><em>מתקדמים.</em>', projectNames:['פרטים מדויקים','מתקנים וכלי עזר','חלקים פונקציונליים'],
+        final:'יש לכם חלק<br>שצריך <em>לקרות?</em>', finalText:'שלחו קובץ, שרטוט, תמונה או תיאור קצר. נבדוק את הנתונים ונחזור עם הצעד הבא.', start:'מתחילים מכאן', footerText:'תכנון, פיתוח וייצור בתלת־ממד.', footerContact:'יצירת קשר'
+      },
+      en: {
+        nav:['About','Capabilities & Materials','Contact'],
+        eyebrow:'// ENGINEERING × ADDITIVE MANUFACTURING', hero:'THE 3D PRINTING CENTER<br><span>FOR ENGINEERS, DESIGNERS &amp; ENTREPRENEURS.</span>', heroLead:'From engineering design to a finished part — additive manufacturing solutions built around the real requirements of your project.', heroCta:'Send a project for review',
+        trustedTitle:'Trusted by industry', trustedText:'Defense, industrial and technology companies',
+        statement:'NOT JUST PRINTING A FILE.<br><em>SOLVING THE PART.</em>', statementText:'We connect design, material and manufacturing technology into one engineering workflow. We test operating conditions, refine the geometry and produce a part built for its real use.', statementLink:'Our approach',
+        metrics:[['industrial','printers'],['materials','available'],['single part','to production'],['years of','experience']],
+        system:'A COMPLETE PRODUCTION SYSTEM.<br>FROM IDEA TO WORKING PART.', systemText:'Everything required to move from a requirement to a working part, with one accountable partner throughout.', all:'All capabilities', more:'Learn more',
+        caps:[['DESIGN & MODELING','A specification, drawing or idea becomes an accurate, production-ready model.'],['FDM PRINTING','Functional parts, prototypes and short runs in a range of engineering materials.'],['MSLA PRINTING','Fine detail, delicate geometries and smooth, high-resolution finishes.'],['MATERIALS & FINISHING','Selection by function, heat, load, working environment and required finish.']],
+        processIntro:'FROM IDEA TO PART.<br><em>FOUR STAGES.</em>', processIntroText:'One engineering process, from defining the need to a part ready to work.', steps:[['UNDERSTAND THE REQUIREMENT','Use, loads, quantity and schedule.'],['PLAN THE ROUTE','Geometry, material and manufacturing technology.'],['BUILD & VERIFY','Printing, finishing and validation.'],['DELIVER & CONTINUE','From the first part to repeat production.']],
+        materials:'THE RIGHT MATCH<br><em>FOR EVERY APPLICATION.</em>', materialsText:'The part does not begin at the printer. It begins with the right decisions about strength, flexibility, accuracy, finish and working environment.', materialCells:[['Prototypes and practical parts'],['Heat and outdoor resistance'],['Strength and long-term wear'],['Flexibility and energy absorption'],['Precision and high-resolution finish']],
+        projects:'ENGINEERED.<br>PRINTED.<br><em>ADVANCED.</em>', projectNames:['Precision details','Fixtures & tooling','Functional parts'],
+        final:'HAVE A PART<br>THAT NEEDS TO <em>HAPPEN?</em>', finalText:'Send a file, drawing, image or short description. We will review the information and return with the next step.', start:'Start here', footerText:'3D design, development and production.', footerContact:'Contact'
+      }
+    };
+    const setLanguage = (lang) => {
+      const t = translations[lang];
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'en' ? 'ltr' : 'rtl';
+      document.title = lang === 'en' ? 'Printing Parts 3D — Engineering Takes Shape' : 'Printing Parts 3D — הנדסה שמקבלת צורה';
+      const actionArrow = lang === 'en' ? '↘' : '↙';
+      const inlineArrow = lang === 'en' ? '→' : '←';
+      document.body.classList.toggle('lang-en', lang === 'en');
+      document.querySelector('.language-select').setAttribute('aria-label', lang === 'he' ? 'בחירת שפה' : 'Choose language');
+      document.querySelector('.language-select').value = lang;
+      document.querySelectorAll('.topbar nav a').forEach((el,i)=>el.textContent=t.nav[i]);
+      document.querySelector('.hero h1').innerHTML=t.hero;
+      document.querySelector('.hero-lead').textContent=t.heroLead;
+      document.querySelector('.hero .cut-button span').textContent=t.heroCta;
+      document.querySelector('.trusted-copy strong').textContent=t.trustedTitle;
+      document.querySelector('.trusted-copy span').textContent=t.trustedText;
+      document.querySelector('.statement h2').innerHTML=t.statement;
+      document.querySelector('.statement-copy p').textContent=t.statementText;
+      document.querySelector('.statement-copy .text-link').innerHTML=`${t.statementLink} <span>${inlineArrow}</span>`;
+      document.querySelectorAll('.metrics article>span').forEach((el,i)=>el.innerHTML=`${t.metrics[i][0]}<br>${t.metrics[i][1]}`);
+      document.querySelector('.capabilities .section-heading h2').innerHTML=t.system;
+      document.querySelector('.capabilities .section-heading p').textContent=t.systemText;
+      document.querySelector('.capabilities .cut-button span').textContent=t.all;
+      document.querySelectorAll('.cap-row').forEach((el,i)=>{el.querySelector('.cap-title').textContent=t.caps[i][0];el.querySelector('.cap-desc').textContent=t.caps[i][1];el.querySelector('.cap-more').childNodes[0].nodeValue=`${t.more} `;});
+      document.querySelector('.process-intro h2').innerHTML=t.processIntro;
+      document.querySelector('.process-intro p').textContent=t.processIntroText;
+      document.querySelectorAll('.process li').forEach((el,i)=>{el.querySelector('b').textContent=t.steps[i][0];el.querySelector('small').textContent=t.steps[i][1];});
+      document.querySelector('.materials-heading h2').innerHTML=t.materials;
+      document.querySelector('.materials-copy p').textContent=t.materialsText;
+      document.querySelectorAll('.material-cell small').forEach((el,i)=>el.textContent=t.materialCells[i][0]);
+      document.querySelector('.projects-head h2').innerHTML=t.projects;
+      document.querySelectorAll('.project-grid h3').forEach((el,i)=>el.textContent=t.projectNames[i]);
+      document.querySelector('.site-cta__content h2').innerHTML=t.final;
+      document.querySelector('.site-cta__content p').textContent=t.finalText;
+      document.querySelector('.site-cta__action span').textContent=t.start;
+      document.querySelectorAll('.cut-button b,.cap-more b').forEach(el=>el.textContent=actionArrow);
+      document.querySelector('.site-cta__action b').textContent=actionArrow;
+      localStorage.setItem('pp3d-language',lang);
+    };
+    const initialLanguage = localStorage.getItem('pp3d-language') || 'he';
+    setLanguage(initialLanguage);
+    document.querySelector('.language-select').addEventListener('change',event=>setLanguage(event.target.value));
+
+    const topbar = document.querySelector('.topbar');
+    const hero = document.querySelector('.hero');
+    const updateHeader = () => {
+      const insideHero = hero.getBoundingClientRect().bottom > topbar.offsetHeight;
+      topbar.classList.toggle('is-hero-scrolled', insideHero && window.scrollY > 18);
+      topbar.classList.toggle('is-solid', !insideHero);
+      const progress = Math.min(1, Math.max(0, window.scrollY / Math.max(1, hero.offsetHeight * .72)));
+      hero.style.setProperty('--hero-scroll', progress.toFixed(3));
+    };
+    window.addEventListener('scroll', updateHeader, { passive:true });
+    window.addEventListener('resize', updateHeader);
+    updateHeader();
+
+    const revealItems = [
+      ...document.querySelectorAll('.hero .eyebrow, .hero h1, .hero-lead, .hero .cut-button'),
+      ...document.querySelectorAll('.trusted-copy, .trusted-logos figure, .statement-copy, .statement-image, .section-heading, .materials-heading, .materials-copy, .material-grid article, .projects-head, .project-grid article, .contact-cta > *'),
+      ...document.querySelectorAll('.metrics article, .cap-row')
+    ];
+    revealItems.forEach((item, index) => {
+      item.classList.add('reveal');
+      if (item.matches('.metrics article, .cap-row, .project-grid article')) {
+        item.style.setProperty('--delay', `${(index % 4) * 70}ms`);
+      }
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        } else {
+          entry.target.classList.remove('is-visible');
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
+    revealItems.forEach(item => observer.observe(item));
+
+    const processSection = document.querySelector('.process');
+    if (processSection) {
+      const processImages = [...processSection.querySelectorAll('.process-visual img')];
+      const processSteps = [...processSection.querySelectorAll('.process li')];
+      const processLabel = processSection.querySelector('.visual-label');
+      const processIntro = processSection.querySelector('.process-intro');
+      let activeProcessStep = -1;
+      let processWheelLocked = false;
+      let processAnimating = false;
+      let processWheelRelease;
+      let processScrollFrame;
+      const renderProcessStep = (nextStep) => {
+        if (nextStep === activeProcessStep) return;
+        activeProcessStep = nextStep;
+        processImages.forEach((image, index) => {
+          image.classList.toggle('is-active', index === nextStep);
+          image.classList.toggle('is-before', index < nextStep);
+          image.classList.toggle('is-after', index > nextStep);
+          image.style.zIndex = index <= nextStep ? String(index + 1) : String(index + 2);
+        });
+        if (processIntro) processIntro.classList.toggle('is-active', nextStep === 0);
+        processSteps.forEach((step, index) => {
+          const activeIndex = nextStep - 1;
+          step.classList.toggle('is-active', index === activeIndex);
+          step.classList.toggle('is-before', index < activeIndex);
+          step.classList.toggle('is-after', index > activeIndex);
+        });
+        if (processLabel) processLabel.textContent = nextStep === 0 ? 'PROCESS / INTRO' : `PROCESS / 0${nextStep}`;
+      };
+      const smoothProcessScrollTo = (targetY) => {
+        cancelAnimationFrame(processScrollFrame);
+        const startY = window.scrollY;
+        const distance = targetY - startY;
+        const duration = 1250;
+        const startedAt = performance.now();
+        processAnimating = true;
+        const ease = (t) => t < .5
+          ? 16 * t * t * t * t * t
+          : 1 - Math.pow(-2 * t + 2, 5) / 2;
+        const tick = (now) => {
+          const progress = Math.min(1, (now - startedAt) / duration);
+          window.scrollTo(0, startY + distance * ease(progress));
+          if (progress < 1) {
+            processScrollFrame = requestAnimationFrame(tick);
+          } else {
+            processAnimating = false;
+            updateProcess();
+          }
+        };
+        processScrollFrame = requestAnimationFrame(tick);
+      };
+      const updateProcess = () => {
+        if (window.innerWidth <= 1024 || processAnimating) return;
+        const rect = processSection.getBoundingClientRect();
+        const travel = Math.max(1, processSection.offsetHeight - window.innerHeight);
+        const progress = Math.min(1, Math.max(0, -rect.top / travel));
+        const nextStep = Math.round(progress * processSteps.length);
+        renderProcessStep(nextStep);
+      };
+      window.addEventListener('scroll', updateProcess, { passive: true });
+      window.addEventListener('resize', updateProcess);
+      window.addEventListener('wheel', (event) => {
+        if (window.innerWidth <= 1024 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const rect = processSection.getBoundingClientRect();
+        const isPinned = rect.top <= 1 && rect.bottom >= window.innerHeight - 1;
+        if (!isPinned || Math.abs(event.deltaY) < 2) return;
+
+        const direction = event.deltaY > 0 ? 1 : -1;
+        const lastProcessStep = processSteps.length;
+        if ((direction < 0 && activeProcessStep <= 0) || (direction > 0 && activeProcessStep >= lastProcessStep)) {
+          return;
+        }
+
+        event.preventDefault();
+        clearTimeout(processWheelRelease);
+        processWheelRelease = setTimeout(() => { processWheelLocked = false; }, 190);
+        if (processWheelLocked || processAnimating) return;
+        processWheelLocked = true;
+
+        const stateCount = processSteps.length + 1;
+        const travel = Math.max(1, processSection.offsetHeight - window.innerHeight);
+        const sectionTop = window.scrollY + rect.top;
+        const targetStep = activeProcessStep + direction;
+        let targetY;
+
+        if (targetStep < 0) {
+          targetY = sectionTop - Math.min(window.innerHeight * .72, 720);
+        } else if (targetStep >= stateCount) {
+          targetY = sectionTop + travel + Math.min(window.innerHeight * .72, 720);
+        } else {
+          const targetProgress = targetStep / (stateCount - 1);
+          targetY = sectionTop + targetProgress * travel;
+          renderProcessStep(targetStep);
+        }
+
+        smoothProcessScrollTo(targetY);
+      }, { passive:false });
+      updateProcess();
+    }
+  </script>
+  <script src="language-menu.js?v=20261014-1"></script>
+</body>
+</html>

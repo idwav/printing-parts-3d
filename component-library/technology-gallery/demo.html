@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Technology Gallery Component</title>
+  <link rel="stylesheet" href="section.css">
+</head>
+<body style="margin:0;background:#252833">
+  <main id="component-root"></main>
+  <script>
+    fetch('section.html')
+      .then((response) => response.text())
+      .then((markup) => {
+        document.getElementById('component-root').innerHTML = markup;
+        const script = document.createElement('script');
+        script.src = 'section.js';
+        document.body.appendChild(script);
+      });
+  </script>
+</body>
+</html>

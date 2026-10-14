@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Printing Parts 3D — Component Library</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #eef1f3; color: #252833; font-family: Arial, sans-serif; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 26px clamp(20px, 4vw, 64px); border-bottom: 1px solid #cbd2d8; background: #fff; }
+    h1 { margin: 0; font-size: clamp(26px, 3vw, 42px); }
+    header p { margin: 6px 0 0; color: #667586; }
+    main { padding: 32px clamp(20px, 4vw, 64px) 64px; }
+    article { overflow: hidden; border: 1px solid #cbd2d8; background: white; }
+    .toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 20px; border-bottom: 1px solid #cbd2d8; }
+    .toolbar h2 { margin: 0; font-size: 21px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    button, a { min-height: 42px; padding: 0 16px; border: 1px solid #252833; background: white; color: #252833; font: inherit; font-weight: 700; cursor: pointer; text-decoration: none; }
+    button:hover, button:focus-visible, a:hover, a:focus-visible { border-color: #ff7100; background: #ff7100; outline: none; }
+    iframe { display: block; width: 100%; height: 820px; border: 0; background: #252833; }
+    .status { min-height: 24px; margin: 14px 0 0; color: #58697a; font-size: 14px; }
+    @media (max-width: 700px) { iframe { height: 1100px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div><h1>ספריית הסקשנים</h1><p>Preview חי, קוד מבודד ו־Prompt לכל רכיב שאושר.</p></div>
+    <a href="../">חזרה לאתר</a>
+  </header>
+  <main>
+    <article>
+      <div class="toolbar">
+        <h2>הטכנולוגיה הנכונה לכל יישום</h2>
+        <div class="actions">
+          <button data-copy="technology-gallery/section.html">Copy HTML</button>
+          <button data-copy="technology-gallery/section.css">Copy CSS</button>
+          <button data-copy="technology-gallery/section.js">Copy JS</button>
+          <button data-copy="technology-gallery/PROMPT.md">Copy Prompt</button>
+          <a href="technology-gallery/demo.html" target="_blank">פתח Preview</a>
+        </div>
+      </div>
+      <iframe src="technology-gallery/demo.html" title="תצוגה חיה של סקשן הטכנולוגיות"></iframe>
+    </article>
+    <p class="status" aria-live="polite"></p>
+  </main>
+  <script>
+    const status = document.querySelector('.status');
+    document.querySelectorAll('[data-copy]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const path = button.dataset.copy;
+        const content = await fetch(path).then((response) => response.text());
+        await navigator.clipboard.writeText(content);
+        status.textContent = `${button.textContent.replace('Copy ', '')} הועתק ללוח.`;
+      });
+    });
+  </script>
+</body>
+</html>
