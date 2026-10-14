@@ -270,7 +270,7 @@
 @media (max-width:1024px) {
   .topbar:not(.is-solid):not(.is-hero-scrolled) { background:transparent!important; backdrop-filter:none!important; -webkit-backdrop-filter:none!important; }
   .topbar { padding-inline:4.7vw!important; }
-  .topbar .logo img { width:clamp(120px,15vw,160px)!important; }
+  .topbar .logo img { width:clamp(87px,10.94vw,117px)!important; }
   .top-actions { left:4.7vw!important; }
   .lang-en .top-actions { left:auto!important; right:4.7vw!important; }
   .topbar .instagram-link { display:none!important; }

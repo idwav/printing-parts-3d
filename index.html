@@ -11,10 +11,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.typekit.net/hop1eit.css">
   <link rel="stylesheet" href="styles.css?v=20261014-1">
-  <link rel="stylesheet" href="shared-header.css?v=20261014-1">
+  <link rel="stylesheet" href="shared-header.css?v=20261014-2">
   <link rel="stylesheet" href="shared-cta.css?v=20261014-1">
   <script>document.documentElement.classList.add('motion-ready')</script>
-  <link rel="stylesheet" href="responsive.css?v=20261014-3">
+  <link rel="stylesheet" href="responsive.css?v=20261014-10">
 </head>
 <body>
   <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;overflow:hidden">
@@ -203,6 +203,7 @@
     };
     window.addEventListener('scroll', updateHeader, { passive:true });
     window.addEventListener('resize', updateHeader);
+    window.addEventListener('pageshow', updateHeader);
     updateHeader();
 
     const revealItems = [
