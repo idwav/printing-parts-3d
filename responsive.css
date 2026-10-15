@@ -666,3 +666,6 @@ body.page-technologies .capability-services__grid figure { width:auto!important;
   /* Text first, so the hero photo and the first row photo never stack back to back. */
   .about-rows .service-row__media, .about-rows .service-row:nth-child(even) .service-row__media { order:2; border-bottom:0; border-top:1px solid #c8c7c2; }
 }
+
+/* Metrics: globe mark for "available worldwide", sized to sit with the numbers. */
+.metrics .metric-globe { display:block; width:.9em; height:.9em; fill:none; stroke:currentColor; stroke-width:1.1; }
