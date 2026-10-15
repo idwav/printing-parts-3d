@@ -18,8 +18,8 @@ menuLinks.forEach((link) => link.addEventListener('click', closeMenu));
 const languageSelect = document.querySelector('.language-select');
 const headerNavLinks = document.querySelectorAll('.topbar > nav a');
 const headerLabels = {
-  he: {'about.html':'אודות', 'technologies.html':'טכנולוגיות', 'materials.html':'יכולות וחומרים', 'contact.html':'צור קשר'},
-  en: {'about.html':'About', 'technologies.html':'Technologies', 'materials.html':'Capabilities & Materials', 'contact.html':'Contact'},
+  he: {'about.html':'אודות', 'services.html':'השירותים שלנו', 'technologies.html':'טכנולוגיות', 'materials.html':'יכולות וחומרים', 'contact.html':'צור קשר'},
+  en: {'about.html':'About', 'services.html':'Our services', 'technologies.html':'Technologies', 'materials.html':'Capabilities & Materials', 'contact.html':'Contact'},
 };
 
 const englishCopy = {
@@ -31,7 +31,37 @@ const englishCopy = {
   'הניסיון שלנו מאפשר להסתכל על החלק בתוך ההקשר שלו: מה הוא צריך לעשות, לאילו רכיבים הוא מתחבר ובאילו תנאים הוא יעבוד. כך מקבלים החלטות מדויקות יותר בתכנון ובייצור.':'Our experience lets us evaluate each part in context: what it must do, what it connects to, and the conditions in which it will operate. This leads to better-informed design and production decisions.',
   'הליווי ההנדסי':'Engineering support','מגדירים את הדרך':'Defining the route','לפני שמתחילים לייצר.':'before production begins.','לפני שמתחילים לייצר':'before production begins',
   'אפשר לפנות אלינו עם קובץ מוכן, מודל שדורש התאמה או צורך שעדיין צריך לתכנן. נבחן את המידע, נגדיר את הדרישות ונבנה את הדרך הנכונה עד לחלק המוגמר.':'Come to us with a production-ready file, a model that needs refinement, or a requirement that still needs to be designed. We review the information, define the requirements, and build the right route to the finished part.',
-  'יש לכם חלק':'Have a part','שצריך':'that needs to','לקרות?':'happen?','מתחילים מכאן':'Start here',
+  'השירותים שלנו':'Our services',
+  'שירותי הנדסה וייצור':'Engineering and production services',
+  'לכל שלב':'for every stage',
+  'בפרויקט.':'of the project.',
+  'מהגדרת הצורך ועד לחלק המוגמר. אפשר להיעזר בנו בשלב אחד או לאורך כל הדרך — בתכנון, בבחירת חומר ותהליך, באב טיפוס ובייצור.':'From defining the need to the finished part. Work with us on a single stage or all the way through — design, material and process selection, prototyping and production.',
+  'שירותי הנדסה ותכנון':'Engineering & design services',
+  'הדפסת תלת־ממד לתעשייה':'Industrial 3D printing',
+  'פיתוח וייצור אבות טיפוס':'Prototype development & production',
+  'ייצור סדרות קטנות':'Small-batch production',
+  'הפיכת דרישות לתכנון שניתן לייצר, או התאמת מודל קיים להמשך הפרויקט.':'Turning requirements into a manufacturable design, or adapting an existing model for the next stage of the project.',
+  'אפשר להתחיל מרעיון, משרטוט, מחלק קיים או ממודל שדורש שינוי. נגדיר יחד מה החלק צריך לעשות ובאילו תנאים הוא יעבוד, ונבנה תכנון שמתאים לתהליך הייצור.':'You can start from an idea, a drawing, an existing part or a model that needs changes. Together we define what the part must do and the conditions it will work in, and build a design that suits the manufacturing process.',
+  'הגדרת דרישות ותנאי עבודה':'Defining requirements and operating conditions',
+  'תכנון ומידול לייצור':'Design and modeling for production',
+  'התאמת מודל קיים לתהליך הנבחר':'Adapting an existing model to the chosen process',
+  'ייצור חלקים לפי דרישות הפרויקט, עם הכוונה לבחירת חומר ותהליך.':'Producing parts to the project requirements, with guidance on choosing the material and process.',
+  'נבחן יחד את הטכנולוגיה והחומר שמתאימים לתפקוד החלק, לסביבת העבודה ולגימור הנדרש — הדפסת FDM, הדפסת MSLA או חיתוך בלייזר.':'Together we review the technology and material that suit the part’s function, working environment and required finish — FDM printing, MSLA printing or laser cutting.',
+  'הכוונה לבחירת חומר ותהליך':'Guidance on material and process',
+  'הדפסת FDM ו־MSLA':'FDM and MSLA printing',
+  'גימור לפי דרישות הפרויקט':'Finishing to project requirements',
+  'מודלים לבחינת התכנון, ההתאמה או התפקוד, כדי לקבל החלטות לקראת השלב הבא.':'Models for testing the design, fit or function, so you can make decisions ahead of the next stage.',
+  'לפני שמייצרים, נגדיר מה רוצים לבדוק באמצעות אב הטיפוס. כך כל סבב מקדם החלטה ברורה ולא רק עוד גרסה.':'Before producing, we define what the prototype needs to test. That way every round moves a clear decision forward, not just another version.',
+  'בחינת צורה והתאמה':'Form and fit review',
+  'בדיקת תפקוד':'Functional testing',
+  'שיפור בין סבבים':'Refinement between rounds',
+  'בחינת מסלול ייצור לכמות הנדרשת, עם הגדרת דרישות לחלקים ולהזמנות חוזרות.':'Reviewing a production route for the required quantity, with defined requirements for parts and repeat orders.',
+  'מחלק בודד ועד סדרה קצרה. נגדיר את הדרישות לחלק ולתהליך כך שאפשר יהיה לחזור על אותה תוצאה גם בהזמנה הבאה.':'From a single part to a short run. We define the part and process requirements so the same result can be repeated in the next order.',
+  'בחינת מסלול ייצור לכמות':'Production route for the quantity',
+  'הגדרת דרישות לחלקים':'Defined part requirements',
+  'הזמנות חוזרות':'Repeat orders',
+  'שלחו פרויקט לבדיקה':'Send a project for review',
+  'יש לכם חלק':'Have a part','שצריך':'that needs','לקרות?':'happen?','לייצר?':'making?','מתחילים מכאן':'Start here',
   'שלחו קובץ, שרטוט, תמונה או תיאור קצר. נבדוק את הנתונים ונחזור עם הצעד הבא.':'Send a file, drawing, photo, or short description. We will review the information and get back to you with the next step.',
 
   'כל היכולות.':'Every capability.','לחלק שעובד.':'For a part that works.',
@@ -91,6 +121,7 @@ const englishTitles = {
   'יכולות | Printing Parts 3D':'Capabilities | Printing Parts 3D',
   'יצירת קשר ובדיקת פרויקט | Printing Parts 3D':'Contact & Project Review | Printing Parts 3D',
   'תהליך עבודה | Printing Parts 3D':'Workflow | Printing Parts 3D',
+  'השירותים שלנו | Printing Parts 3D':'Our Services | Printing Parts 3D',
   'טכנולוגיות ייצור | Printing Parts 3D':'Manufacturing Technologies | Printing Parts 3D',
 };
 
