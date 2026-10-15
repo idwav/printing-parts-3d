@@ -624,3 +624,31 @@ body.page-technologies .capability-services__grid figure { width:auto!important;
 @media (max-width:620px) {
   body.page-technologies .capability-services__grid figure { margin:10px 10px 0!important; }
 }
+
+/* ==========================================================================
+   One heading scale for every page. Same hierarchy level = same size.
+   :not(#t) lifts specificity above the older page-specific !important rules.
+   H1  page title          H2  section heading          H3  card / column title
+   (The homepage hero H1 keeps its own fit-to-description sizing.)
+   ========================================================================== */
+:root {
+  --type-h1: clamp(36px, 1.6rem + 3.4vw, 76px);
+  --type-h2: clamp(30px, 1.2rem + 2.6vw, 58px);
+  --type-h3: clamp(21px, 1rem + 0.75vw, 28px);
+}
+:is(
+  .page-hero h1, .materials-hero h1, .contact-section h1
+):not(#t) { font-size:var(--type-h1)!important; line-height:1.02!important; letter-spacing:-.035em!important; }
+:is(
+  .statement h2, .section-heading h2, .process-intro h2, .process li b, .materials-heading h2,
+  .services-head h2, .site-cta h2, .about-story h2, .about-story h3, .service-row__copy h2,
+  .capability-services__head h2, .materials-section-head h2, .materials-fit__head h2, .confirmation-copy h2
+):not(#t) { font-size:var(--type-h2)!important; line-height:1.06!important; letter-spacing:-.03em!important; }
+:is(
+  .service-body h3, .capability-services__grid h3, .materials-library__card h3,
+  .materials-criteria h3, .process-panel__intro h3, .cap-title, .material-cell strong
+):not(#t) { font-size:var(--type-h3)!important; line-height:1.15!important; letter-spacing:-.02em!important; }
+/* Phone: let the hero description use the full width so the H1 (sized to it) stays above H2 size. */
+@media (max-width:620px) {
+  .hero .hero-text .hero-lead:not(#t) { max-width:none!important; width:100%!important; }
+}
