@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="shared-header.css?v=20261014-2">
   <link rel="stylesheet" href="shared-cta.css?v=20261014-1">
   <script>document.documentElement.classList.add('motion-ready')</script>
-  <link rel="stylesheet" href="responsive.css?v=20261014-10">
+  <link rel="stylesheet" href="responsive.css?v=20261015-7">
 </head>
 <body>
   <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;overflow:hidden">
@@ -38,7 +38,7 @@
   </svg>
   <header class="topbar">
     <a class="logo" href="#top" aria-label="Printing Parts 3D — דף הבית"><img src="assets/brand-logo.svg" alt="Printing Parts 3D"></a>
-    <nav aria-label="ניווט ראשי"><a href="about.html">אודות</a><a href="technologies.html">טכנולוגיות</a><a href="materials.html">יכולות וחומרים</a><a href="contact.html">צור קשר</a></nav>
+    <nav aria-label="ניווט ראשי"><a href="about.html">אודות</a><a href="services.html">השירותים שלנו</a><a href="technologies.html">טכנולוגיות</a><a href="materials.html">יכולות וחומרים</a><a href="contact.html">צור קשר</a></nav>
     <div class="top-actions"><label class="language-menu"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9S14.5 18.3 12 21M12 3C9.5 5.7 8.2 8.7 8.2 12S9.5 18.3 12 21"></path></svg><select class="language-select" aria-label="בחירת שפה"><option value="he">עברית</option><option value="en">English</option></select></label><a class="top-contact instagram-link" href="https://www.instagram.com/printing_parts_3d/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle class="instagram-dot" cx="17.4" cy="6.7" r="1"></circle></svg></a></div>
   </header>
   <main id="top">
@@ -46,9 +46,15 @@
       <video class="hero-media" autoplay muted loop playsinline poster="assets/plates/hero-video.jpg"><source src="assets/video/hero-beni.mp4" type="video/mp4"></video>
       <div class="hero-overlay"></div><div class="hero-grid"></div>
       <div class="hero-copy">
-        <h1>המרכז להדפסה <nobr>תלת־ממדית</nobr><br><span>למהנדסים, מעצבים ויזמים.</span></h1>
-        <p class="hero-lead">מתכנון הנדסי ועד חלק מוגמר — פתרונות הדפסה תלת־ממדית שנבנים סביב הדרישות האמיתיות של הפרויקט.</p>
-        <a class="cut-button" href="contact.html#project-form"><span>שלחו פרויקט לבדיקה</span><b>↙</b></a>
+        <div class="hero-text">
+          <h1><span class="hero-line">המרכז להדפסות תלת מימד</span><span class="hero-line">מתכנון ועד החלק המוגמר</span></h1>
+          <p class="hero-lead">יותר מ־20 שנות ניסיון בפרויקטים הנדסיים מורכבים עוזרות לנו לבחור יחד אתכם את הדרך המתאימה לייצור: לדייק את התכנון, להתאים את החומר ולצמצם ניסיונות מיותרים בדרך לחלק שאתם צריכים.</p>
+        </div>
+        <div class="hero-actions">
+          <a class="cut-button" href="contact.html#project-form"><span>שלחו פרויקט לבדיקה</span><b>↙</b></a>
+          <a class="hero-secondary" href="contact.html">צריכים עזרה בתכנון?</a>
+        </div>
+        <p class="hero-micro">אפשר להתחיל מקובץ, משרטוט או מתיאור הצורך.</p>
       </div>
     </section>
     <section class="trusted" id="trusted" aria-label="לקוחות שנותנים בנו אמון">
@@ -63,8 +69,8 @@
     </section>
     <section class="statement dark-section">
       <div class="statement-copy">
-        <h2>לא רק להדפיס קובץ.<br><em>לפתור את החלק.</em></h2>
-        <p>אנחנו מחברים תכנון, חומר וטכנולוגיית ייצור למהלך הנדסי אחד. בודקים את תנאי העבודה, מחדדים את הגאומטריה ומייצרים חלק שמתאים לשימוש שלו.</p>
+        <h2>ניסיון הנדסי שמגיע<br><em>עד לרצפת הייצור</em></h2>
+        <p>בכל פרויקט אנחנו מחברים בין דרישות השימוש, התכנון ויכולות הייצור, כדי לעזור לכם להתקדם עם החלטות ברורות.</p>
         <a class="text-link" href="about.html">על הדרך שלנו <span>←</span></a>
       </div>
       <figure class="statement-image brand-frame-test"><img src="assets/plates/functional-part-caliper-inspection.png" alt="בדיקת מידות של מכלול מודפס פונקציונלי באמצעות קליבר דיגיטלי"><i class="corner-plus corner-plus--tr" aria-hidden="true">+</i><i class="corner-plus corner-plus--tl" aria-hidden="true">+</i><i class="corner-plus corner-plus--br" aria-hidden="true">+</i><i class="corner-plus corner-plus--bl" aria-hidden="true">+</i></figure>
@@ -85,20 +91,18 @@
       <div class="process-sticky">
         <div class="process-visual">
           <img class="is-active" src="assets/plates/process-intro-sketch.png" alt="סקיצה ראשונית מהרעיון לחלק">
-          <img src="assets/plates/process-understand-requirement.jpg" alt="מבינים את הדרישה ההנדסית">
-          <img src="assets/plates/process-plan-route.jpg" alt="בחירת חומרים ותכנון דרך הייצור">
-          <img src="assets/plates/process-build-check.jpg" alt="ייצור ובדיקת החלק">
-          <img src="assets/plates/process-delivery.png" alt="מסירת החלק המוגמר">
+          <img src="assets/plates/process-understand-requirement.jpg" alt="בחינת התכנון מול תהליך הייצור">
+          <img src="assets/plates/process-plan-route.jpg" alt="בחירת חומר ותהליך לפי השימוש">
+          <img src="assets/plates/process-build-check.jpg" alt="בדיקת החלק לפני תחילת הייצור">
           <span class="crosshair x1">+</span><span class="crosshair x2">+</span>
         </div>
         <div class="process-content">
           <div class="process-copy-carousel">
-            <div class="process-intro is-active"><h2>מרעיון לחלק.<br><em>ארבע תחנות.</em></h2><p>תהליך הנדסי אחד, מהגדרת הצורך ועד לחלק שמוכן לעבוד.</p></div>
+            <div class="process-intro is-active"><h2>ההחלטות שלפני ההדפסה<br><em>משפיעות על התוצאה</em></h2><p>חומר שלא מתאים לסביבת העבודה, פרט תכנוני שמקשה על הייצור או דרישת התאמה שלא הוגדרה מראש עלולים להוביל לסבב נוסף. אנחנו מתחילים בשאלות הנכונות: מה החלק צריך לעשות, באילו תנאים הוא יעבוד ומה חשוב להשיג במסגרת הזמן והתקציב.</p></div>
             <ol>
-              <li><div class="process-step-group"><span>01</span><div><b>מבינים את הדרישה</b><small>שימוש, עומסים, כמות ולוחות זמנים.</small></div></div></li>
-              <li><div class="process-step-group"><span>02</span><div><b>מתכננים את הדרך</b><small>גאומטריה, חומר וטכנולוגיית ייצור.</small></div></div></li>
-              <li><div class="process-step-group"><span>03</span><div><b>מייצרים ובודקים</b><small>הדפסה, גימור ובקרת התוצאה.</small></div></div></li>
-              <li><div class="process-step-group"><span>04</span><div><b>מוסרים וממשיכים</b><small>מחלק ראשון ועד סדרה חוזרת.</small></div></div></li>
+              <li><div class="process-step-group"><span>01</span><div><b>תכנון שמתחשב בייצור</b><small>זיהוי נקודות שדורשות בחינה והתאמת התכנון לתהליך הנבחר, בהתאם להיקף הליווי שסוכם.</small></div></div></li>
+              <li><div class="process-step-group"><span>02</span><div><b>בחירת חומר לפי השימוש</b><small>בחינת דרישות החלק וסביבת העבודה כדי לבחור חומר ותהליך מתאימים.</small></div></div></li>
+              <li><div class="process-step-group"><span>03</span><div><b>תמונה ברורה לפני שמתקדמים</b><small>הבנת הפשרות בין עלות, מראה, דרישות תפקוד ולוח זמנים לפני תחילת הייצור.</small></div></div></li>
             </ol>
           </div>
         </div>
@@ -117,36 +121,76 @@
         <article class="material-cell"><div class="material-mark mark-detail"><i></i><i></i><i></i></div><strong>RESIN</strong><small>דיוק וגימור ברזולוציה גבוהה</small></article>
       </div>
     </section>
-    <section class="projects dark-section" id="projects"><div class="projects-head"><h2>מהנדסים.<br>מדפיסים.<br><em>מתקדמים.</em></h2></div><div class="project-grid"><article><img src="assets/plates/project-precise-details.jpg" alt="פרטים מדויקים בהדפסה תלת־ממדית"><div class="project-caption"><h3>פרטים מדויקים</h3></div></article><article><img src="assets/plates/project-fixtures.jpg" alt="מתקנים וכלי עזר מודפסים"><div class="project-caption"><h3>מתקנים וכלי עזר</h3></div></article><article><img src="assets/plates/project-functional.jpg" alt="חלק פונקציונלי מורכב"><div class="project-caption"><h3>חלקים פונקציונליים</h3></div></article></div></section>
-    <section class="site-cta" id="contact-cta"><div class="site-cta__content"><h2>יש לכם חלק<br>שצריך <em>לקרות?</em></h2><p>שלחו קובץ, שרטוט, תמונה או תיאור קצר. נבדוק את הנתונים ונחזור עם הצעד הבא.</p></div><a class="site-cta__action" href="contact.html#project-form"><span>מתחילים מכאן</span><b>↙</b></a></section>
+    <section class="services" id="projects">
+      <div class="services-head"><h2>שירותי הנדסה וייצור<br><em>לכל שלב בפרויקט</em></h2></div>
+      <div class="service-grid">
+        <article class="service-card">
+          <figure class="service-media"><img src="assets/plates/about-engineering.jpg" alt="מהנדס בוחן מודל תלת־ממדי מול חלק מודפס" loading="lazy"></figure>
+          <div class="service-body">
+            <span class="service-index">01</span>
+            <h3>שירותי הנדסה ותכנון</h3>
+            <p>הפיכת דרישות לתכנון שניתן לייצר, או התאמת מודל קיים להמשך הפרויקט.</p>
+            <a class="service-link" href="services.html#engineering-design"><span>לשירותי הנדסה ותכנון</span><b aria-hidden="true">←</b></a>
+          </div>
+        </article>
+        <article class="service-card">
+          <figure class="service-media"><img src="assets/plates/msla-image-clean.jpg" alt="חלקים תעשייתיים על משטח הדפסה" loading="lazy"></figure>
+          <div class="service-body">
+            <span class="service-index">02</span>
+            <h3>הדפסת תלת־ממד לתעשייה</h3>
+            <p>ייצור חלקים לפי דרישות הפרויקט, עם הכוונה לבחירת חומר ותהליך.</p>
+            <a class="service-link" href="services.html#industrial-3d-printing"><span>להדפסת חלקים לתעשייה</span><b aria-hidden="true">←</b></a>
+          </div>
+        </article>
+        <article class="service-card">
+          <figure class="service-media"><img src="assets/plates/project-functional.jpg" alt="אב טיפוס פונקציונלי מורכב" loading="lazy"></figure>
+          <div class="service-body">
+            <span class="service-index">03</span>
+            <h3>פיתוח וייצור אבות טיפוס</h3>
+            <p>מודלים לבחינת התכנון, ההתאמה או התפקוד, כדי לקבל החלטות לקראת השלב הבא.</p>
+            <a class="service-link" href="services.html#prototyping"><span>לייצור אבות טיפוס</span><b aria-hidden="true">←</b></a>
+          </div>
+        </article>
+        <article class="service-card">
+          <figure class="service-media"><img src="assets/plates/project-fixtures.jpg" alt="סדרת חלקים זהים על מדפסת" loading="lazy"></figure>
+          <div class="service-body">
+            <span class="service-index">04</span>
+            <h3>ייצור סדרות קטנות</h3>
+            <p>בחינת מסלול ייצור לכמות הנדרשת, עם הגדרת דרישות לחלקים ולהזמנות חוזרות.</p>
+            <a class="service-link" href="services.html#small-batch-production"><span>לייצור סדרות קטנות</span><b aria-hidden="true">←</b></a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="site-cta" id="contact-cta"><div class="site-cta__content"><h2>יש לכם חלק<br>שצריך <em>לייצר?</em></h2><p>שלחו קובץ, שרטוט, תמונה או תיאור קצר. נבדוק את הנתונים ונחזור עם הצעד הבא.</p></div><a class="site-cta__action" href="contact.html#project-form"><span>שלחו פרויקט לבדיקה</span><b>↙</b></a></section>
   </main>
   <script>
     const translations = {
       he: {
-        nav:['אודות','טכנולוגיות','יכולות וחומרים','צור קשר'],
-        eyebrow:'// ENGINEERING × ADDITIVE MANUFACTURING', hero:'המרכז להדפסה <nobr>תלת־ממדית</nobr><br><span>למהנדסים, מעצבים ויזמים.</span>', heroLead:'מתכנון הנדסי ועד חלק מוגמר — פתרונות הדפסה תלת־ממדית שנבנים סביב הדרישות האמיתיות של הפרויקט.', heroCta:'שלחו פרויקט לבדיקה',
+        nav:['אודות','השירותים שלנו','טכנולוגיות','יכולות וחומרים','צור קשר'],
+        eyebrow:'// ENGINEERING × ADDITIVE MANUFACTURING', hero:'<span class="hero-line">המרכז להדפסות תלת מימד</span><span class="hero-line">מתכנון ועד החלק המוגמר</span>', heroLead:'יותר מ־20 שנות ניסיון בפרויקטים הנדסיים מורכבים עוזרות לנו לבחור יחד אתכם את הדרך המתאימה לייצור: לדייק את התכנון, להתאים את החומר ולצמצם ניסיונות מיותרים בדרך לחלק שאתם צריכים.', heroCta:'שלחו פרויקט לבדיקה', heroSecondary:'צריכים עזרה בתכנון?', heroMicro:'אפשר להתחיל מקובץ, משרטוט או מתיאור הצורך.',
         trustedTitle:'נותנים בנו אמון', trustedText:'חברות ביטחוניות, תעשייתיות וטכנולוגיות',
-        statement:'לא רק להדפיס קובץ.<br><em>לפתור את החלק.</em>', statementText:'אנחנו מחברים תכנון, חומר וטכנולוגיית ייצור למהלך הנדסי אחד. בודקים את תנאי העבודה, מחדדים את הגאומטריה ומייצרים חלק שמתאים לשימוש שלו.', statementLink:'על הדרך שלנו',
+        statement:'ניסיון הנדסי שמגיע<br><em>עד לרצפת הייצור</em>', statementText:'בכל פרויקט אנחנו מחברים בין דרישות השימוש, התכנון ויכולות הייצור, כדי לעזור לכם להתקדם עם החלטות ברורות.', statementLink:'על הדרך שלנו',
         metrics:[['מדפסות','תעשייתיות'],['סוגי חומר','לבחירה'],['מחלק בודד','ועד סדרה'],['שנות ניסיון','בתחום']],
         system:'מערכת ייצור שלמה.<br>מהרעיון לחלק שעובד.', systemText:'כל מה שצריך כדי לעבור מדרישה לחלק עובד, עם כתובת אחת לאורך הדרך.', all:'לכל היכולות', more:'לעוד פרטים',
         caps:[['תכנון ומידול','מפרט, שרטוט או רעיון הופכים למודל מדויק, מותאם לייצור ומוכן לבדיקה.'],['הדפסת FDM','חלקים פונקציונליים, אבות טיפוס וסדרות קצרות במגוון חומרים הנדסיים.'],['הדפסת MSLA','פרטים מדויקים, גאומטריות עדינות וגימור חלק ברזולוציה גבוהה.'],['חומרים וגימור','בחירה לפי תפקוד, חום, עומס, סביבת עבודה ורמת הגימור הנדרשת.']],
-        processIntro:'מרעיון לחלק.<br><em>ארבע תחנות.</em>', processIntroText:'תהליך הנדסי אחד, מהגדרת הצורך ועד לחלק שמוכן לעבוד.', steps:[['מבינים את הדרישה','שימוש, עומסים, כמות ולוחות זמנים.'],['מתכננים את הדרך','גאומטריה, חומר וטכנולוגיית ייצור.'],['מייצרים ובודקים','הדפסה, גימור ובקרת התוצאה.'],['מוסרים וממשיכים','מחלק ראשון ועד סדרה חוזרת.']],
+        processIntro:'ההחלטות שלפני ההדפסה<br><em>משפיעות על התוצאה</em>', processIntroText:'חומר שלא מתאים לסביבת העבודה, פרט תכנוני שמקשה על הייצור או דרישת התאמה שלא הוגדרה מראש עלולים להוביל לסבב נוסף. אנחנו מתחילים בשאלות הנכונות: מה החלק צריך לעשות, באילו תנאים הוא יעבוד ומה חשוב להשיג במסגרת הזמן והתקציב.', steps:[['תכנון שמתחשב בייצור','זיהוי נקודות שדורשות בחינה והתאמת התכנון לתהליך הנבחר, בהתאם להיקף הליווי שסוכם.'],['בחירת חומר לפי השימוש','בחינת דרישות החלק וסביבת העבודה כדי לבחור חומר ותהליך מתאימים.'],['תמונה ברורה לפני שמתקדמים','הבנת הפשרות בין עלות, מראה, דרישות תפקוד ולוח זמנים לפני תחילת הייצור.']],
         materials:'ההתאמה הנכונה<br><em>לכל יישום.</em>', materialsText:'החלק לא מתחיל במדפסת. הוא מתחיל בהחלטות הנכונות על חוזק, גמישות, דיוק, גימור וסביבת העבודה.', materialCells:[['אב־טיפוס וחלקים שימושיים'],['עמידות בחום ובסביבה'],['חוזק ושחיקה לאורך זמן'],['גמישות וספיגת אנרגיה'],['דיוק וגימור ברזולוציה גבוהה']],
-        projects:'מהנדסים.<br>מדפיסים.<br><em>מתקדמים.</em>', projectNames:['פרטים מדויקים','מתקנים וכלי עזר','חלקים פונקציונליים'],
-        final:'יש לכם חלק<br>שצריך <em>לקרות?</em>', finalText:'שלחו קובץ, שרטוט, תמונה או תיאור קצר. נבדוק את הנתונים ונחזור עם הצעד הבא.', start:'מתחילים מכאן', footerText:'תכנון, פיתוח וייצור בתלת־ממד.', footerContact:'יצירת קשר'
+        services:'שירותי הנדסה וייצור<br><em>לכל שלב בפרויקט</em>', serviceCards:[['שירותי הנדסה ותכנון','הפיכת דרישות לתכנון שניתן לייצר, או התאמת מודל קיים להמשך הפרויקט.','לשירותי הנדסה ותכנון'],['הדפסת תלת־ממד לתעשייה','ייצור חלקים לפי דרישות הפרויקט, עם הכוונה לבחירת חומר ותהליך.','להדפסת חלקים לתעשייה'],['פיתוח וייצור אבות טיפוס','מודלים לבחינת התכנון, ההתאמה או התפקוד, כדי לקבל החלטות לקראת השלב הבא.','לייצור אבות טיפוס'],['ייצור סדרות קטנות','בחינת מסלול ייצור לכמות הנדרשת, עם הגדרת דרישות לחלקים ולהזמנות חוזרות.','לייצור סדרות קטנות']],
+        final:'יש לכם חלק<br>שצריך <em>לייצר?</em>', finalText:'שלחו קובץ, שרטוט, תמונה או תיאור קצר. נבדוק את הנתונים ונחזור עם הצעד הבא.', start:'שלחו פרויקט לבדיקה', footerText:'תכנון, פיתוח וייצור בתלת־ממד.', footerContact:'יצירת קשר'
       },
       en: {
-        nav:['About','Technologies','Capabilities & Materials','Contact'],
-        eyebrow:'// ENGINEERING × ADDITIVE MANUFACTURING', hero:'THE 3D PRINTING CENTER<br><span>FOR ENGINEERS, DESIGNERS &amp; ENTREPRENEURS.</span>', heroLead:'From engineering design to a finished part — additive manufacturing solutions built around the real requirements of your project.', heroCta:'Send a project for review',
+        nav:['About','Our services','Technologies','Capabilities & Materials','Contact'],
+        eyebrow:'// ENGINEERING × ADDITIVE MANUFACTURING', hero:'<span class="hero-line">The 3D printing center</span><span class="hero-line">From design to the finished part</span>', heroLead:'Over 20 years of experience in complex engineering projects helps us choose the right manufacturing route with you: refine the design, match the material and cut unnecessary trial runs on the way to the part you need.', heroCta:'Send a project for review', heroSecondary:'Need help with design?', heroMicro:'You can start from a file, a drawing or a description of the need.',
         trustedTitle:'Trusted by industry', trustedText:'Defense, industrial and technology companies',
-        statement:'NOT JUST PRINTING A FILE.<br><em>SOLVING THE PART.</em>', statementText:'We connect design, material and manufacturing technology into one engineering workflow. We test operating conditions, refine the geometry and produce a part built for its real use.', statementLink:'Our approach',
+        statement:'ENGINEERING EXPERIENCE<br><em>DOWN TO THE PRODUCTION FLOOR</em>', statementText:'In every project we connect the use requirements, the design and the production capabilities, helping you move forward with clear decisions.', statementLink:'Our approach',
         metrics:[['industrial','printers'],['materials','available'],['single part','to production'],['years of','experience']],
         system:'A COMPLETE PRODUCTION SYSTEM.<br>FROM IDEA TO WORKING PART.', systemText:'Everything required to move from a requirement to a working part, with one accountable partner throughout.', all:'All capabilities', more:'Learn more',
         caps:[['DESIGN & MODELING','A specification, drawing or idea becomes an accurate, production-ready model.'],['FDM PRINTING','Functional parts, prototypes and short runs in a range of engineering materials.'],['MSLA PRINTING','Fine detail, delicate geometries and smooth, high-resolution finishes.'],['MATERIALS & FINISHING','Selection by function, heat, load, working environment and required finish.']],
-        processIntro:'FROM IDEA TO PART.<br><em>FOUR STAGES.</em>', processIntroText:'One engineering process, from defining the need to a part ready to work.', steps:[['UNDERSTAND THE REQUIREMENT','Use, loads, quantity and schedule.'],['PLAN THE ROUTE','Geometry, material and manufacturing technology.'],['BUILD & VERIFY','Printing, finishing and validation.'],['DELIVER & CONTINUE','From the first part to repeat production.']],
+        processIntro:'THE DECISIONS BEFORE PRINTING<br><em>SHAPE THE RESULT.</em>', processIntroText:'A material that does not suit the working environment, a design detail that complicates production, or a fit requirement that was not defined in advance can lead to another round. We start with the right questions: what the part needs to do, under what conditions it will work, and what matters most within the time and budget.', steps:[['DESIGN WITH PRODUCTION IN MIND','Identifying points that need review and adapting the design to the chosen process, within the agreed scope of support.'],['MATERIAL CHOSEN BY USE','Reviewing the part requirements and working environment to choose a suitable material and process.'],['A CLEAR PICTURE BEFORE MOVING ON','Understanding the trade-offs between cost, appearance, functional requirements and schedule before production begins.']],
         materials:'THE RIGHT MATCH<br><em>FOR EVERY APPLICATION.</em>', materialsText:'The part does not begin at the printer. It begins with the right decisions about strength, flexibility, accuracy, finish and working environment.', materialCells:[['Prototypes and practical parts'],['Heat and outdoor resistance'],['Strength and long-term wear'],['Flexibility and energy absorption'],['Precision and high-resolution finish']],
-        projects:'ENGINEERED.<br>PRINTED.<br><em>ADVANCED.</em>', projectNames:['Precision details','Fixtures & tooling','Functional parts'],
-        final:'HAVE A PART<br>THAT NEEDS TO <em>HAPPEN?</em>', finalText:'Send a file, drawing, image or short description. We will review the information and return with the next step.', start:'Start here', footerText:'3D design, development and production.', footerContact:'Contact'
+        services:'ENGINEERING &amp; PRODUCTION SERVICES<br><em>FOR EVERY PROJECT STAGE</em>', serviceCards:[['ENGINEERING & DESIGN SERVICES','Turning requirements into a manufacturable design, or adapting an existing model for the next stage of the project.','Engineering & design services'],['INDUSTRIAL 3D PRINTING','Producing parts to the project requirements, with guidance on choosing the material and process.','Industrial part printing'],['PROTOTYPE DEVELOPMENT & PRODUCTION','Models for testing the design, fit or function, so you can make decisions ahead of the next stage.','Prototype production'],['SMALL-BATCH PRODUCTION','Reviewing a production route for the required quantity, with defined requirements for parts and repeat orders.','Small-batch production']],
+        final:'HAVE A PART<br>THAT NEEDS <em>MAKING?</em>', finalText:'Send a file, drawing, image or short description. We will review the information and return with the next step.', start:'Send a project for review', footerText:'3D design, development and production.', footerContact:'Contact'
       }
     };
     const setLanguage = (lang) => {
@@ -163,6 +207,8 @@
       document.querySelector('.hero h1').innerHTML=t.hero;
       document.querySelector('.hero-lead').textContent=t.heroLead;
       document.querySelector('.hero .cut-button span').textContent=t.heroCta;
+      document.querySelector('.hero-secondary').textContent=t.heroSecondary;
+      document.querySelector('.hero-micro').textContent=t.heroMicro;
       document.querySelector('.trusted-copy strong').textContent=t.trustedTitle;
       document.querySelector('.trusted-copy span').textContent=t.trustedText;
       document.querySelector('.statement h2').innerHTML=t.statement;
@@ -179,8 +225,8 @@
       document.querySelector('.materials-heading h2').innerHTML=t.materials;
       document.querySelector('.materials-copy p').textContent=t.materialsText;
       document.querySelectorAll('.material-cell small').forEach((el,i)=>el.textContent=t.materialCells[i][0]);
-      document.querySelector('.projects-head h2').innerHTML=t.projects;
-      document.querySelectorAll('.project-grid h3').forEach((el,i)=>el.textContent=t.projectNames[i]);
+      document.querySelector('.services-head h2').innerHTML=t.services;
+      document.querySelectorAll('.service-card').forEach((el,i)=>{const [title,text,link]=t.serviceCards[i];el.querySelector('h3').textContent=title;el.querySelector('p').textContent=text;el.querySelector('.service-link').innerHTML=`<span>${link}</span><b aria-hidden="true">${inlineArrow}</b>`;});
       document.querySelector('.site-cta__content h2').innerHTML=t.final;
       document.querySelector('.site-cta__content p').textContent=t.finalText;
       document.querySelector('.site-cta__action span').textContent=t.start;
@@ -208,12 +254,12 @@
 
     const revealItems = [
       ...document.querySelectorAll('.hero .eyebrow, .hero h1, .hero-lead, .hero .cut-button'),
-      ...document.querySelectorAll('.trusted-copy, .trusted-logos figure, .statement-copy, .statement-image, .section-heading, .materials-heading, .materials-copy, .material-grid article, .projects-head, .project-grid article, .contact-cta > *'),
+      ...document.querySelectorAll('.trusted-copy, .trusted-logos figure, .statement-copy, .statement-image, .section-heading, .materials-heading, .materials-copy, .material-grid article, .services-head, .service-card, .contact-cta > *'),
       ...document.querySelectorAll('.metrics article, .cap-row')
     ];
     revealItems.forEach((item, index) => {
       item.classList.add('reveal');
-      if (item.matches('.metrics article, .cap-row, .project-grid article')) {
+      if (item.matches('.metrics article, .cap-row, .service-card')) {
         item.style.setProperty('--delay', `${(index % 4) * 70}ms`);
       }
     });
