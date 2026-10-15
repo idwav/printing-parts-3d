@@ -652,3 +652,17 @@ body.page-technologies .capability-services__grid figure { width:auto!important;
 @media (max-width:620px) {
   .hero .hero-text .hero-lead:not(#t) { max-width:none!important; width:100%!important; }
 }
+
+/* About: story split into two alternating rows (same row system as the services page). */
+.about-rows { border-top:1px solid #c8c7c2; }
+.about-rows .service-row__media { padding:0; position:relative; overflow:hidden; }
+.about-rows .service-row__media img { min-height:560px; max-height:none; }
+.about-rows .service-row__copy { padding-block:clamp(56px,7vw,120px); }
+.about-rows .service-row__index { font-size:13px; font-weight:500; letter-spacing:.02em; }
+@media (max-width:1024px) {
+  .about-rows .service-row__media img { min-height:0; }
+}
+@media (max-width:1024px) {
+  /* Text first, so the hero photo and the first row photo never stack back to back. */
+  .about-rows .service-row__media, .about-rows .service-row:nth-child(even) .service-row__media { order:2; border-bottom:0; border-top:1px solid #c8c7c2; }
+}
