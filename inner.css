@@ -1885,6 +1885,10 @@ body.lang-en .technology-overview__heading,
 body.lang-en .technology-card__copy,
 body.lang-en .technology-choice__copy,
 body.lang-en .technology-cta__inner,
+body.lang-en.page-contact .contact-panel h1,
+body.lang-en.page-contact .contact-panel p,
+body.lang-en.page-contact .contact-details,
+body.lang-en.page-contact .contact-details span,
 body.lang-en .contact-panel,
 body.lang-en .contact-form,
 body.lang-en .confirmation-copy{
@@ -2011,9 +2015,9 @@ body.lang-en .page-materials .capability-services__grid p{margin-right:0!importa
   .page-technologies .capability-services__grid h3{padding:20px 22px 0;font-size:28px;line-height:1.05}
   .page-technologies .capability-services__grid p{padding:12px 22px 0;font-size:14px}
 }
-body.lang-en .page-contact .field input,
-body.lang-en .page-contact .field textarea{direction:ltr!important;text-align:left!important}
-body.lang-en .page-contact .file-field>label{direction:ltr!important;text-align:left!important}
+body.lang-en.page-contact .field input,
+body.lang-en.page-contact .field textarea{direction:ltr!important;text-align:left!important}
+body.lang-en.page-contact .file-field>label{direction:ltr!important;text-align:left!important}
 body.lang-en .site-cta__content,
 body.lang-en .site-cta__action{direction:ltr!important;text-align:left!important}
 body.lang-en .site-cta h2{font-weight:300!important}

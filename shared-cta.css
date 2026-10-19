@@ -1,4 +1,27 @@
 :root{--brand-orange:#ff7100;--brand-black:#252833;--brand-line:#c8c7c2}
+.site-ending{display:contents}
+.site-ending .site-cta,
+.site-ending .site-cta__content,
+.site-ending .business-location-footer { background:#ff7100!important; color:#fff; }
+.site-ending .site-cta h2,
+.site-ending .site-cta h2 em,
+.site-ending .site-cta p { color:#fff!important; }
+.site-ending .business-location-footer h2,
+.site-ending .business-location-footer address,
+.site-ending .business-location-footer a,
+.site-ending .business-location-footer span { color:#fff!important; }
+.site-ending .site-cta__action { background:#252833!important; color:#fff!important; }
+.site-ending > .business-location-footer { border-top:1px solid #252833!important; box-shadow:none; }
+.service-rows + .site-ending .site-cta { border-top:0; }
+@media(min-width:1025px){
+  .site-ending{display:grid;grid-template-rows:minmax(260px,auto) auto;min-height:0;background:var(--brand-black)}
+  .site-ending .site-cta{grid-row:1;grid-template-rows:1fr;min-height:0}
+  .site-ending .site-cta__content{padding:32px 4vw}
+  .site-ending .site-cta h2{font-size:clamp(38px,3.6vw,60px);line-height:1.05}
+  .site-ending .site-cta__action{padding:32px;align-items:center;min-height:0}
+  .site-ending .business-location-footer{grid-row:2;margin:0;align-content:center;border-top:1px solid var(--brand-line);direction:rtl}
+  .lang-en .site-ending .business-location-footer{direction:ltr;text-align:left}
+}
 .site-cta{display:grid;grid-template-columns:1fr 3fr;grid-template-rows:minmax(360px,42svh);min-height:0;overflow:hidden;border-top:1px solid var(--brand-line);background:var(--brand-black);color:#f4f3ef;direction:ltr}
 .site-cta__content{grid-column:2;grid-row:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:clamp(36px,4vw,66px);direction:rtl;text-align:right}
 .site-cta h2{max-width:none;margin:0;font-family:"Rubik",sans-serif;font-size:clamp(54px,4.8vw,88px);font-weight:900;line-height:.9;letter-spacing:-.055em}
@@ -15,6 +38,13 @@
 .site-cta h2{font-weight:300!important}
 .site-cta__action,.site-cta__action span{font-weight:400!important}
 .site-cta__action b{font-weight:300!important}
+.lang-en .site-cta__content,.lang-en .site-cta__action{direction:ltr;text-align:left}
+.lang-en .site-cta__action:hover span{transform:translateX(9px)}
+.lang-en .site-cta__action:hover b{transform:translate(6px,6px) rotate(8deg)}
+/* Keep English reading direction at every breakpoint, including explicitly aligned headings. */
+html[lang="en"] body.lang-en main h1,
+html[lang="en"] body.lang-en main h2,
+html[lang="en"] body.lang-en main h3{direction:ltr!important;text-align:left!important}
 @media(min-width:901px){
   .lang-en .site-cta{grid-template-columns:3fr 1fr;direction:ltr}
   .lang-en .site-cta__content{grid-column:1;direction:ltr;text-align:left}

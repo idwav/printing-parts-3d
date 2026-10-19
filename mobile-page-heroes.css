@@ -1,0 +1,31 @@
+/* Match the technology hero's mobile copy / image proportions. */
+@media(max-width:620px){
+  body:is(.page-about,.page-services,.page-industries,.page-materials) :is(.page-hero,.materials-hero){
+    display:grid!important;grid-template-columns:minmax(0,1fr)!important;
+    grid-template-areas:"copy" "visual"!important;
+    grid-template-rows:minmax(min-content,46fr) minmax(0,54fr)!important;
+    height:calc(100svh - 76px)!important;min-height:640px!important;
+    padding:0!important;gap:0!important;overflow:hidden;
+  }
+  body:is(.page-about,.page-services,.page-industries,.page-materials) :is(.page-hero-copy,.materials-hero__copy){
+    grid-area:copy!important;position:relative!important;inset:auto!important;
+    display:flex!important;flex-direction:column;justify-content:center!important;
+    align-self:stretch!important;width:100%!important;height:auto!important;min-height:0!important;
+    padding:22px!important;margin:0!important;transform:none!important;
+    border:0!important;border-bottom:1px solid #d2d0ca!important;
+  }
+  body:is(.page-about,.page-services,.page-industries,.page-materials) :is(.page-hero,.materials-hero) h1:not(#unused){
+    font-size:clamp(30px,8.6vw,36px)!important;line-height:1.02!important;
+    font-weight:300!important;margin:0 0 14px!important;
+  }
+  body:is(.page-about,.page-services,.page-industries,.page-materials) :is(.page-hero-copy,.materials-hero__copy)>p{
+    font-size:13.5px!important;line-height:1.5!important;margin:0!important;
+  }
+  body:is(.page-about,.page-services,.page-industries,.page-materials) :is(.page-hero-media,.materials-hero__media){
+    grid-area:visual!important;position:relative!important;inset:auto!important;
+    width:100%!important;height:100%!important;min-height:0!important;max-height:none!important;
+    margin:0!important;padding:0!important;aspect-ratio:auto!important;align-self:stretch!important;object-fit:cover!important;
+  }
+  body:is(.page-about,.page-services,.page-industries) .page-hero-media img{width:100%!important;height:100%!important;object-fit:cover!important}
+  body:is(.page-about,.page-services,.page-industries) .page-hero-divider{display:none!important}
+}
