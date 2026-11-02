@@ -21,4 +21,6 @@ Then open `http://localhost:3000`.
 
 ## Wix Headless
 
-The project enquiry form is submitted through a Netlify Function and stored in Wix Forms. See [WIX_HEADLESS_SETUP.md](WIX_HEADLESS_SETUP.md) for the required Wix form, credentials, and Netlify environment variables.
+The project enquiry form is submitted through a Cloudflare Pages Function and stored in Wix Forms. See [WIX_HEADLESS_SETUP.md](WIX_HEADLESS_SETUP.md) for the required Wix form, credentials, and Cloudflare environment variables.
+
+Run `npm run dev:cloudflare` to preview the site with the form function on `http://localhost:8788`.

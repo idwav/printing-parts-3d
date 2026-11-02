@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {
   buildMediaUploadRequest,
   buildSubmissionMap,
+  handleSubmission,
   normalizePhone,
   validateSubmission,
 } from '../netlify/functions/submit-project.mjs';
@@ -54,4 +55,26 @@ test('builds the Wix REST media upload request', () => {
     filename: 'drawing.png',
     mimeType: 'image/png',
   });
+});
+
+const formRequest = (fields = {}) => {
+  const body = new FormData();
+  Object.entries(fields).forEach(([key, value]) => body.append(key, value));
+  return new Request('https://example.test/api/submit-project', { method: 'POST', body });
+};
+const wixEnv = { WIX_CLIENT_ID: 'id', WIX_CLIENT_SECRET: 'secret', WIX_FORM_ID: 'form' };
+
+test('rejects non-POST requests', async () => {
+  const response = await handleSubmission(new Request('https://example.test/api/submit-project'), wixEnv);
+  assert.equal(response.status, 405);
+});
+
+test('reports a missing Wix configuration from the injected environment', async () => {
+  const response = await handleSubmission(formRequest({ name: 'x' }), {});
+  assert.equal(response.status, 503);
+});
+
+test('reads the Wix configuration from the injected environment', async () => {
+  const response = await handleSubmission(formRequest({ name: 'x' }), wixEnv);
+  assert.equal(response.status, 400);
 });

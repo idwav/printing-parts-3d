@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "python3 -m http.server 3000",
     "start": "python3 -m http.server 3000",
+    "build": "node scripts/build.mjs",
+    "dev:cloudflare": "npm run build && npx wrangler@4 pages dev dist --port 8788 --compatibility-date=2026-11-01",
     "test": "node --test"
   }
 }
