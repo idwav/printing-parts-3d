@@ -4,7 +4,6 @@ node_modules/
 *.log
 .impeccable/*
 !.impeccable/design.json
-assets/plates/*.png
 
 # Local Netlify folder
 .netlify
