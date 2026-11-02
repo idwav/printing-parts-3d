@@ -101,6 +101,7 @@ const englishCopy = {
   'הגדרת דרישות לחלקים':'Defined part requirements',
   'הזמנות חוזרות':'Repeat orders',
   'שלחו פרויקט לבדיקה':'Send a project for review',
+  'העמוד לא נמצא':'Page not found','ייתכן שהכתובת השתנתה או שהעמוד כבר לא קיים.':'The address may have changed, or the page no longer exists.','חזרה לדף הבית':'Back to the homepage',
   'יש לכם חלק':'Have a part','שצריך':'that needs','לקרות?':'happen?','לייצר?':'making?','מתחילים מכאן':'Start here',
   'שלחו קובץ, שרטוט, תמונה או תיאור קצר. נבדוק את הנתונים ונחזור עם הצעד הבא.':'Send a file, drawing, photo, or short description. We will review the information and get back to you with the next step.',
 
@@ -162,6 +163,7 @@ const englishTitles = {
   'יצירת קשר ובדיקת פרויקט | Printing Parts 3D':'Contact & Project Review | Printing Parts 3D',
   'תהליך עבודה | Printing Parts 3D':'Workflow | Printing Parts 3D',
   'השירותים שלנו | Printing Parts 3D':'Our Services | Printing Parts 3D',
+  'העמוד לא נמצא | Printing Parts 3D':'Page Not Found | Printing Parts 3D',
   'טכנולוגיות ייצור | Printing Parts 3D':'Manufacturing Technologies | Printing Parts 3D',
 };
 
