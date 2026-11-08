@@ -6,3 +6,5 @@
 /copy-of-contact /contact 301
 /category/* / 301
 /product-page/* / 301
+/he / 301
+/he/* /:splat 301
