@@ -114,6 +114,9 @@ document.addEventListener('DOMContentLoaded', () => {
     block.innerHTML = '<h2 data-location-title></h2><address><span data-location-address></span><a href="mailto:info@printingparts3d.com" dir="ltr">info@printingparts3d.com</a></address><a class="business-directions" href="https://www.google.com/maps/search/?api=1&query=7+Hankin+Street+Holon+Israel" target="_blank" rel="noopener noreferrer"><span data-location-directions></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 5 5 19M5 7v12h12"/></svg></a>';
     return block;
   };
+  const legal = document.createElement('div');
+  legal.className = 'site-legal';
+  legal.innerHTML = '<span data-legal-copy></span><nav data-legal-nav><a href="accessibility.html" data-legal-accessibility></a><a href="privacy.html" data-legal-privacy></a><a href="https://www.facebook.com/printing_parts_3d/" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.instagram.com/printing_parts_3d/" target="_blank" rel="noopener noreferrer">Instagram</a></nav>';
   const main = document.querySelector('main');
   const finalCta = document.querySelector('.site-cta');
   if (finalCta) {
@@ -123,11 +126,16 @@ document.addEventListener('DOMContentLoaded', () => {
     ending.append(makeLocation(true), finalCta);
   }
   else if (main) main.after(makeLocation(true));
+  (document.querySelector('.site-ending') || document.querySelector('.business-location-footer'))?.after(legal);
   const translate = () => {
     const en = document.documentElement.lang.startsWith('en') || document.body.classList.contains('lang-en');
     document.querySelectorAll('[data-location-title]').forEach(n => n.textContent = en ? 'Find us' : 'איפה אנחנו');
     document.querySelectorAll('[data-location-address]').forEach(n => n.textContent = en ? '7 Hankin Street, Holon, Israel' : 'רחוב חנקין 7, חולון');
     document.querySelectorAll('[data-location-directions]').forEach(n => n.textContent = en ? 'Get directions' : 'ניווט אלינו');
+    legal.querySelector('[data-legal-copy]').textContent = `© ${new Date().getFullYear()} Printing Parts 3D. ${en ? 'All rights reserved' : 'כל הזכויות שמורות'}.`;
+    legal.querySelector('[data-legal-nav]').setAttribute('aria-label', en ? 'Legal and social links' : 'קישורים משפטיים ורשתות');
+    legal.querySelector('[data-legal-accessibility]').textContent = en ? 'Accessibility statement' : 'הצהרת נגישות';
+    legal.querySelector('[data-legal-privacy]').textContent = en ? 'Privacy policy' : 'מדיניות פרטיות';
   };
   translate();
   new MutationObserver(translate).observe(document.documentElement, {attributes:true, attributeFilter:['lang']});

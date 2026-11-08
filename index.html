@@ -6,6 +6,19 @@
   <meta name="theme-color" content="#252833">
   <meta name="description" content="Printing Parts 3D — תכנון, פיתוח וייצור חלקים בהדפסת תלת־ממד לתעשייה.">
   <title>Printing Parts 3D — הנדסה שמקבלת צורה</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://www.printingparts3d.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Printing Parts 3D">
+  <meta property="og:locale" content="he_IL">
+  <meta property="og:title" content="Printing Parts 3D — הנדסה שמקבלת צורה">
+  <meta property="og:description" content="Printing Parts 3D — תכנון, פיתוח וייצור חלקים בהדפסת תלת־ממד לתעשייה.">
+  <meta property="og:url" content="https://www.printingparts3d.com/">
+  <meta property="og:image" content="https://www.printingparts3d.com/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
@@ -14,10 +27,11 @@
   <link rel="stylesheet" href="shared-header.css?v=20261019-smooth-scroll">
   <link rel="stylesheet" href="shared-cta.css?v=20261019-footer-blue-divider">
   <script>document.documentElement.classList.add('motion-ready')</script>
-  <link rel="stylesheet" href="responsive.css?v=20261108-5">
+  <link rel="stylesheet" href="responsive.css?v=20261108-12">
   <link rel="stylesheet" href="service-clarity.css?v=20261019-1">
 </head>
 <body>
+  <a class="skip-link" href="#top">דלג לתוכן הראשי</a>
   <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;overflow:hidden">
     <defs>
       <clipPath id="brand-stepped-rounded" clipPathUnits="objectBoundingBox">
@@ -44,7 +58,7 @@
   </header>
   <main id="top">
     <section class="hero">
-      <video class="hero-media" autoplay muted loop playsinline poster="assets/plates/hero-video.jpg"><source src="assets/video/hero-beni-web.mp4" type="video/mp4"></video>
+      <video class="hero-media" aria-hidden="true" autoplay muted loop playsinline poster="assets/plates/hero-video.jpg"><source src="assets/video/hero-beni-web.mp4" type="video/mp4"></video><button class="hero-video-toggle" type="button" aria-pressed="false" aria-label="השהיית סרטון הרקע"><span class="hero-video-toggle__pause" aria-hidden="true"></span></button>
       <div class="hero-overlay"></div><div class="hero-grid"></div>
       <div class="hero-copy">
         <div class="hero-text">
@@ -208,6 +222,8 @@
       }
     };
     const setLanguage = (lang) => {
+      document.querySelector('.skip-link').textContent = lang === 'en' ? 'Skip to main content' : 'דלג לתוכן הראשי';
+      document.querySelector('.hero-video-toggle')?.dispatchEvent(new Event('relabel'));
       const t = translations[lang];
       document.querySelector('#service-clarity-title').innerHTML=lang==='en'?'We don’t sell printers.<br><span>We design and produce the part you need.</span>':'לא מוכרים מדפסות.<br><span>מתכננים ומייצרים את החלק שאתם צריכים.</span>';
       document.querySelector('.service-clarity p').textContent=lang==='en'?'Engineering, design and 3D printing services — from your idea or file to the finished part.':'שירותי הנדסה, תכנון והדפסת תלת־ממד — מהרעיון או הקובץ שלכם ועד לחלק המוגמר.';
@@ -400,6 +416,26 @@
       updateProcess();
     }
   </script>
-  <script src="language-menu.js?v=20261019-wheel-inertia"></script>
+  <script src="language-menu.js?v=20261108-1"></script>
+  <script>
+    (() => {
+      const video = document.querySelector('.hero-media');
+      const toggle = document.querySelector('.hero-video-toggle');
+      if (!video || !toggle) return;
+      const label = () => {
+        const en = document.documentElement.lang === 'en';
+        const paused = video.paused;
+        toggle.setAttribute('aria-pressed', String(paused));
+        toggle.setAttribute('aria-label', paused ? (en ? 'Play background video' : 'הפעלת סרטון הרקע') : (en ? 'Pause background video' : 'השהיית סרטון הרקע'));
+        toggle.classList.toggle('is-paused', paused);
+      };
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) video.pause();
+      toggle.addEventListener('click', () => { video.paused ? video.play() : video.pause(); });
+      video.addEventListener('play', label);
+      video.addEventListener('pause', label);
+      toggle.addEventListener('relabel', label);
+      label();
+    })();
+  </script>
 </body>
 </html>
