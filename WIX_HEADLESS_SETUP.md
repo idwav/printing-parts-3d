@@ -9,7 +9,7 @@ In the client's Wix dashboard, open **Forms & Submissions** and create a new sta
 | Website field | Wix field key | Required |
 | --- | --- | --- |
 | Full name | `form_field` | Yes |
-| Email | to be confirmed | Yes |
+| Email | `form_field_1` | Yes |
 | Phone | `form_field_2` | |
 | Subject / project description | `form_field_3` | Yes |
 | File | `form_field_4` | |

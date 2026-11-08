@@ -7,7 +7,7 @@ const WIX_MEDIA_URL = `${WIX_SUBMISSION_URL}/media-upload-url`;
 // Field keys of the "Project enquiry" form in Wix Forms (each field's settings show its key).
 const WIX_FIELD_TARGETS = Object.freeze({
   fullName: 'form_field',
-  email: 'email',
+  email: 'form_field_1',
   phone: 'form_field_2',
   message: 'form_field_3',
   file: 'form_field_4',

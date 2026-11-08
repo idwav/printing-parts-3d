@@ -47,7 +47,7 @@ test('maps form fields to Wix targets and removes empty ones', () => {
   }, 'https://upload.example/file');
   assert.deepEqual(map, {
     form_field: 'Tom Cohen',
-    email: 'tom@example.com',
+    form_field_1: 'tom@example.com',
     form_field_3: 'Ten brackets',
     form_field_4: 'https://upload.example/file',
   });
