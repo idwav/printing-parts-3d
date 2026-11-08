@@ -9,8 +9,7 @@ import {
 } from '../netlify/functions/submit-project.mjs';
 
 const validValues = {
-  name: 'ישראל ישראלי', email: 'Test@Example.com', phone: '050-123-4567',
-  details: 'חלק מכני לסדרה קטנה', loadedAt: '1000',
+  firstName: 'ישראל', email: 'Test@Example.com', phone: '050-123-4567', loadedAt: '1000',
 };
 
 test('normalizes a valid project submission', () => {
@@ -33,16 +32,22 @@ test('rejects unsupported files', () => {
   assert.throws(() => validateSubmission(validValues, { name: 'payload.exe', size: 100 }, 5000), /סוג הקובץ אינו נתמך/);
 });
 
-test('removes empty Wix fields', () => {
+test('requires a first name, email and phone', () => {
+  assert.throws(() => validateSubmission({ ...validValues, phone: '' }, null, 5000), /נא למלא שם, אימייל וטלפון/);
+});
+
+test('maps form fields to Wix targets and removes empty ones', () => {
   const map = buildSubmissionMap({
-    name: 'Tom', email: 'tom@example.com', phone: '+972501234567', details: 'Part', company: '',
-    quantity: '', deadline: '', requirements: '',
-  });
+    firstName: 'Tom', lastName: '', email: 'tom@example.com', phone: '+972501234567',
+    jobTitle: '', subject: 'Bracket', message: 'Ten units',
+  }, 'https://upload.example/file');
   assert.deepEqual(map, {
-    first_name_46d5: 'Tom',
-    email_6195: 'tom@example.com',
-    phone_9102: '+972501234567',
-    long_answer_f959: 'Part',
+    first_name: 'Tom',
+    email: 'tom@example.com',
+    phone: '+972501234567',
+    subject: 'Bracket',
+    long_answer: 'Ten units',
+    file_upload: 'https://upload.example/file',
   });
 });
 
@@ -70,11 +75,11 @@ test('rejects non-POST requests', async () => {
 });
 
 test('reports a missing Wix configuration from the injected environment', async () => {
-  const response = await handleSubmission(formRequest({ name: 'x' }), {});
+  const response = await handleSubmission(formRequest({ firstName: 'x' }), {});
   assert.equal(response.status, 503);
 });
 
 test('reads the Wix configuration from the injected environment', async () => {
-  const response = await handleSubmission(formRequest({ name: 'x' }), wixEnv);
+  const response = await handleSubmission(formRequest({ firstName: 'x' }), wixEnv);
   assert.equal(response.status, 400);
 });

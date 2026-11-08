@@ -834,3 +834,12 @@ body.page-technologies .capability-services__grid figure img { display:block; mi
 .not-found__action { display:inline-flex; align-items:center; gap:24px; min-height:60px; padding:0 26px; background:var(--orange); color:#fff; font-size:15px; font-weight:500; text-decoration:none; clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px); }
 .not-found__action b { font-weight:400; }
 .lang-en .not-found { direction:ltr; text-align:left; }
+
+/* Contact form: six short fields, the project description and the file row. */
+.page-contact .form-grid:not(#t) { grid-template-rows:repeat(6,minmax(58px,1fr)) minmax(112px,1.3fr) minmax(64px,.8fr); }
+@media (max-width:1024px) {
+  .page-contact .form-grid:not(#t) { grid-template-rows:none!important; grid-auto-rows:auto!important; }
+  .page-contact .form-grid:not(#t) .field { min-height:64px!important; }
+  .page-contact .form-grid:not(#t) .field-project { min-height:120px!important; }
+  .page-contact .contact-form .form-grid:not(#t) { flex:0 0 auto!important; }
+}

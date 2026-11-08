@@ -4,32 +4,24 @@ The public website is hosted on Cloudflare Pages. Wix is used as the protected b
 
 ## 1. Create the Wix form
 
-In the Wix dashboard for project `82253800-6895-427d-a2ff-50d61b830877`:
+In the client's Wix dashboard, open **Forms & Submissions** and create a new standalone form named `Project enquiry` with these fields. The site's previous contact form uses the legacy Wix Forms app, which this integration cannot write to.
 
-1. Install or open **Wix Forms**.
-2. Create a form named `Project enquiry`.
-3. Add the fields below. Wix generates the storage targets automatically; the current production targets are recorded here so code and schema can be audited together:
+| Website field | Wix field type | Required |
+| --- | --- | --- |
+| First name | First name | Yes |
+| Last name | Last name | |
+| Email | Email | Yes |
+| Phone | Phone | Yes |
+| Job title | Short answer | |
+| Subject | Short answer | |
+| Project description | Long answer | |
+| File | File upload (STL, STEP, STP, OBJ, PDF, DWG, IGES, IGS, JPG, PNG) | |
 
-| Wix target | Purpose |
-| --- | --- |
-| `first_name_46d5` | Full name |
-| `company_name_7742` | Company |
-| `email_6195` | Email |
-| `phone_9102` | Phone |
-| `long_answer_f959` | Project description |
-| `short_answer_0787` | Required quantity |
-| `short_answer_95c1` | Target date |
-| `long_answer_1835` | Additional requirements |
-| `file_upload_292c` | Uploaded project file |
-
-4. Form ID: `51af4f13-f6d2-4511-a6dc-e458df274161`. It is stored as `WIX_FORM_ID` in Cloudflare.
+Wix generates a key for every field. Copy each key from the field's settings into `WIX_FIELD_TARGETS` in `netlify/functions/submit-project.mjs`; the values there now are placeholders. Store the form ID as `WIX_FORM_ID` in Cloudflare.
 
 ## 2. Create Wix server credentials
 
-In **Headless Settings**, create a client secret for the existing OAuth client.
-
-- Client ID: `1db002e9-d9cc-4317-b122-59a71e3df405`
-- Required permission: **Manage Submissions**
+In **Settings > Development & integrations > Headless Settings**, create a headless client, then open its settings and generate a client secret.
 
 The secret is displayed once. Store it directly in Cloudflare and do not commit it to Git.
 
@@ -38,7 +30,7 @@ The secret is displayed once. Store it directly in Cloudflare and do not commit 
 Create a Pages project connected to the GitHub repository with `npm run build` as the build command and `dist` as the build output directory. In **Settings > Variables and Secrets**, add these for both Production and Preview, marking `WIX_CLIENT_SECRET` as a secret:
 
 ```text
-WIX_CLIENT_ID=1db002e9-d9cc-4317-b122-59a71e3df405
+WIX_CLIENT_ID=<the headless client ID>
 WIX_CLIENT_SECRET=<the generated Wix secret>
 WIX_FORM_ID=<the Wix form ID>
 ```

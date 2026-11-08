@@ -4,16 +4,16 @@ const MIN_FILL_TIME_MS = 1200;
 const WIX_TOKEN_URL = 'https://www.wixapis.com/oauth2/token';
 const WIX_SUBMISSION_URL = 'https://www.wixapis.com/form-submission-service/v4/submissions';
 const WIX_MEDIA_URL = `${WIX_SUBMISSION_URL}/media-upload-url`;
+// Field keys of the "Project enquiry" form in Wix Forms (each field's settings show its key).
 const WIX_FIELD_TARGETS = Object.freeze({
-  name: 'first_name_46d5',
-  company: 'company_name_7742',
-  email: 'email_6195',
-  phone: 'phone_9102',
-  details: 'long_answer_f959',
-  quantity: 'short_answer_0787',
-  deadline: 'short_answer_95c1',
-  requirements: 'long_answer_1835',
-  file: 'file_upload_292c',
+  firstName: 'first_name',
+  lastName: 'last_name',
+  email: 'email',
+  phone: 'phone',
+  jobTitle: 'job_title',
+  subject: 'subject',
+  message: 'long_answer',
+  file: 'file_upload',
 });
 const ALLOWED_EXTENSIONS = new Set([
   'stl', 'step', 'stp', 'obj', 'pdf', 'dwg', 'iges', 'igs', 'jpg', 'jpeg', 'png',
@@ -50,13 +50,12 @@ export function validateSubmission(values, file, now = Date.now()) {
   const loadedAt = Number(values.loadedAt);
   if (Number.isFinite(loadedAt) && now - loadedAt < MIN_FILL_TIME_MS) return { spam: true };
 
-  const name = clean(values.name, 160);
+  const firstName = clean(values.firstName, 100);
   const email = clean(values.email, 254).toLowerCase();
   const phone = normalizePhone(values.phone);
-  const details = clean(values.details);
 
-  if (!name || !email || !phone || !details) {
-    throw new PublicError('נא למלא שם, אימייל, טלפון ותיאור הפרויקט.');
+  if (!firstName || !email || !phone) {
+    throw new PublicError('נא למלא שם, אימייל וטלפון.');
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     throw new PublicError('כתובת האימייל אינה תקינה.');
@@ -70,31 +69,23 @@ export function validateSubmission(values, file, now = Date.now()) {
   return {
     spam: false,
     data: {
-      name,
-      company: clean(values.company, 200),
+      firstName,
+      lastName: clean(values.lastName, 100),
       email,
       phone,
-      details,
-      quantity: clean(values.quantity, 100),
-      deadline: clean(values.deadline, 160),
-      requirements: clean(values.requirements),
+      jobTitle: clean(values.jobTitle, 160),
+      subject: clean(values.subject, 200),
+      message: clean(values.message),
     },
   };
 }
 
 export function buildSubmissionMap(data, uploadedFileUrl = '') {
-  const fields = {
-    [WIX_FIELD_TARGETS.name]: data.name,
-    [WIX_FIELD_TARGETS.company]: data.company,
-    [WIX_FIELD_TARGETS.email]: data.email,
-    [WIX_FIELD_TARGETS.phone]: data.phone,
-    [WIX_FIELD_TARGETS.details]: data.details,
-    [WIX_FIELD_TARGETS.quantity]: data.quantity,
-    [WIX_FIELD_TARGETS.deadline]: data.deadline,
-    [WIX_FIELD_TARGETS.requirements]: data.requirements,
-  };
+  const fields = Object.fromEntries(
+    Object.entries(data).map(([field, value]) => [WIX_FIELD_TARGETS[field], value]),
+  );
   if (uploadedFileUrl) fields[WIX_FIELD_TARGETS.file] = uploadedFileUrl;
-  return Object.fromEntries(Object.entries(fields).filter(([, value]) => value));
+  return Object.fromEntries(Object.entries(fields).filter(([target, value]) => target && value));
 }
 
 export function buildMediaUploadRequest(formId, file) {
