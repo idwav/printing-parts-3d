@@ -102,6 +102,11 @@ const englishCopy = {
   'הזמנות חוזרות':'Repeat orders',
   'שלחו פרויקט לבדיקה':'Send a project for review',
   'העמוד לא נמצא':'Page not found','ייתכן שהכתובת השתנתה או שהעמוד כבר לא קיים.':'The address may have changed, or the page no longer exists.','חזרה לדף הבית':'Back to the homepage',
+  'כתבו לנו כמה מילים על הפרויקט: מה צריך לייצר, לאיזה שימוש ובאיזו כמות. אפשר לצרף קובץ או שרטוט, וגם בלי קובץ נשמח לעזור לדייק את הדרך.':'Tell us a little about the project: what needs to be made, what it is for and how many you need. You can attach a file or drawing, and we are happy to help even without one.',
+  'שם פרטי ומשפחה':'Full name',
+  'נושא הפנייה / תיאור הפרויקט':'Subject / project description',
+  'נושא הפנייה / תיאור הפרויקט: מה החלק צריך לעשות, כמה יחידות ומתי תצטרכו אותו':'Subject / project description: what the part needs to do, how many units and when you need them',
+  'צרפו קובץ (STL, OBJ, STEP)':'Attach a file (STL, OBJ, STEP)',
   'יש לכם חלק':'Have a part','שצריך':'that needs','לקרות?':'happen?','לייצר?':'making?','מתחילים מכאן':'Start here',
   'שלחו קובץ, שרטוט, תמונה או תיאור קצר. נבדוק את הנתונים ונחזור עם הצעד הבא.':'Send a file, drawing, photo, or short description. We will review the information and get back to you with the next step.',
 
@@ -242,10 +247,11 @@ const fileInput = contactForm?.querySelector('input[type="file"]');
 const fileLabel = contactForm?.querySelector('[data-file-label]');
 if (loadedAtInput) loadedAtInput.value = String(Date.now());
 
-fileInput?.addEventListener('change', () => {
+const updateFileLabel = () => {
   if (!fileLabel) return;
-  fileLabel.textContent = fileInput.files?.[0]?.name || (document.documentElement.lang === 'en' ? 'Attach a file' : 'צרפו קובץ');
-});
+  fileLabel.textContent = fileInput.files?.[0]?.name || (document.documentElement.lang === 'en' ? 'Attach a file (STL, OBJ, STEP)' : 'צרפו קובץ (STL, OBJ, STEP)');
+};
+fileInput?.addEventListener('change', updateFileLabel);
 
 contactForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
@@ -272,6 +278,7 @@ contactForm?.addEventListener('submit', async (event) => {
     status.classList.add('is-success');
     status.textContent = isEnglish ? 'Your request was sent successfully.' : 'הפנייה נשלחה בהצלחה.';
     contactForm.reset();
+    updateFileLabel();
     if (loadedAtInput) loadedAtInput.value = String(Date.now());
     if (confirmation) {
       confirmation.hidden = false;
