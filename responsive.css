@@ -845,7 +845,7 @@ body.page-technologies .capability-services__grid figure img { display:block; mi
 }
 
 /* Contact form: visible label above a clearly underlined input (no placeholder-only fields). */
-.page-contact .contact-form .field:not(#t) { align-content:center; gap:10px; }
+.page-contact .contact-form .field:not(#t) { align-content:center; justify-items:stretch; place-items:center stretch; gap:10px; text-align:start; }
 .page-contact .contact-form .field:not(.file-field) > label:not(#t) {
   position:static; width:auto; height:auto; margin:0; overflow:visible; clip:auto; white-space:normal;
   color:var(--ink); font:500 14px/1.3 "Rubik",Arial,sans-serif; letter-spacing:0;
