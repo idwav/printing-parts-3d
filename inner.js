@@ -104,6 +104,7 @@ const englishCopy = {
   'העמוד לא נמצא':'Page not found','ייתכן שהכתובת השתנתה או שהעמוד כבר לא קיים.':'The address may have changed, or the page no longer exists.','חזרה לדף הבית':'Back to the homepage',
   'כתבו לנו כמה מילים על הפרויקט: מה צריך לייצר, לאיזה שימוש ובאיזו כמות. אפשר לצרף קובץ או שרטוט, וגם בלי קובץ נשמח לעזור לדייק את הדרך.':'Tell us a little about the project: what needs to be made, what it is for and how many you need. You can attach a file or drawing, and we are happy to help even without one.',
   'שם פרטי ומשפחה':'Full name',
+  'לדוגמה: דנה כהן':'e.g. Dana Cohen','מה החלק צריך לעשות, כמה יחידות ומתי תצטרכו אותו':'What the part needs to do, how many units and when you need them','שליחת פנייה נוספת':'Send another request',
   'נושא הפנייה / תיאור הפרויקט':'Subject / project description',
   'נושא הפנייה / תיאור הפרויקט: מה החלק צריך לעשות, כמה יחידות ומתי תצטרכו אותו':'Subject / project description: what the part needs to do, how many units and when you need them',
   'צרפו קובץ (STL, OBJ, STEP)':'Attach a file (STL, OBJ, STEP)',
@@ -253,10 +254,25 @@ const updateFileLabel = () => {
 };
 fileInput?.addEventListener('change', updateFileLabel);
 
+const formSuccess = contactForm?.querySelector('[data-form-success]');
+const showFormSuccess = () => {
+  if (!formSuccess) return;
+  contactForm.classList.add('is-sent');
+  formSuccess.hidden = false;
+  formSuccess.focus({ preventScroll: true });
+  contactForm.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+};
+contactForm?.querySelector('[data-form-again]')?.addEventListener('click', () => {
+  contactForm.classList.remove('is-sent');
+  formSuccess.hidden = true;
+  const status = contactForm.querySelector('.form-status');
+  if (status) { status.textContent = ''; status.className = 'form-status'; }
+  contactForm.querySelector('input:not([type="hidden"]):not([tabindex="-1"])')?.focus();
+});
+
 contactForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
   const status = contactForm.querySelector('.form-status');
-  const confirmation = document.querySelector('[data-confirmation]');
   const submitButton = contactForm.querySelector('[type="submit"]');
   const originalLabel = submitButton?.innerHTML;
 
@@ -280,10 +296,7 @@ contactForm?.addEventListener('submit', async (event) => {
     contactForm.reset();
     updateFileLabel();
     if (loadedAtInput) loadedAtInput.value = String(Date.now());
-    if (confirmation) {
-      confirmation.hidden = false;
-      confirmation.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'center' });
-    }
+    showFormSuccess();
   } catch (error) {
     status.classList.add('is-error');
     status.textContent = error.message || (isEnglish ? 'There was an error sending your request. Please try again.' : 'אירעה שגיאה בשליחת הפנייה. נסו שוב.');
