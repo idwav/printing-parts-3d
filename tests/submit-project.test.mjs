@@ -5,6 +5,7 @@ import {
   buildSubmissionMap,
   handleSubmission,
   normalizePhone,
+  parseFormId,
   validateSubmission,
 } from '../netlify/functions/submit-project.mjs';
 
@@ -69,7 +70,7 @@ const formRequest = (fields = {}) => {
   Object.entries(fields).forEach(([key, value]) => body.append(key, value));
   return new Request('https://example.test/api/submit-project', { method: 'POST', body });
 };
-const wixEnv = { WIX_CLIENT_ID: 'id', WIX_CLIENT_SECRET: 'secret', WIX_FORM_ID: 'form' };
+const wixEnv = { WIX_CLIENT_ID: 'id', WIX_CLIENT_SECRET: 'secret', WIX_FORM_ID: 'a8743983-bbf3-46f0-946b-e9f3420ecc38' };
 
 test('rejects non-POST requests', async () => {
   const response = await handleSubmission(new Request('https://example.test/api/submit-project'), wixEnv);
@@ -84,4 +85,12 @@ test('reports a missing Wix configuration from the injected environment', async 
 test('reads the Wix configuration from the injected environment', async () => {
   const response = await handleSubmission(formRequest({ fullName: 'x' }), wixEnv);
   assert.equal(response.status, 400);
+});
+
+test('reads the form ID from a bare ID, a padded value or a pasted dashboard URL', () => {
+  const id = 'a8743983-bbf3-46f0-946b-e9f3420ecc38';
+  assert.equal(parseFormId(id), id);
+  assert.equal(parseFormId(` "${id.toUpperCase()}"\n`), id);
+  assert.equal(parseFormId(`https://manage.wix.com/dashboard/94e24c65-0cd4-4ef1-957e-68e7dc47690d/wix-forms/form/${id}/edit`), id);
+  assert.equal(parseFormId('Project enquiry'), '');
 });

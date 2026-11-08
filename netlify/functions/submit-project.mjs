@@ -78,6 +78,15 @@ export function buildSubmissionMap(data, uploadedFileUrl = '') {
   return Object.fromEntries(Object.entries(fields).filter(([target, value]) => target && value));
 }
 
+const GUID_PATTERN = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
+
+// Accepts the bare form ID, or a pasted dashboard URL such as .../wix-forms/form/<id>/edit.
+export function parseFormId(value) {
+  const raw = String(value || '').trim();
+  const fromUrl = raw.match(new RegExp(`/form/(${GUID_PATTERN.source})`, 'i'));
+  return (fromUrl?.[1] || raw.match(GUID_PATTERN)?.[0] || '').toLowerCase();
+}
+
 export function buildMediaUploadRequest(formId, file) {
   return {
     form_id: formId,
@@ -162,7 +171,10 @@ export async function handleSubmission(request, env) {
   try {
     const clientId = env.WIX_CLIENT_ID;
     const clientSecret = env.WIX_CLIENT_SECRET;
-    const formId = env.WIX_FORM_ID;
+    const formId = parseFormId(env.WIX_FORM_ID);
+    if (env.WIX_FORM_ID && !formId) {
+      console.error('WIX_FORM_ID is not a form ID', { length: String(env.WIX_FORM_ID).length });
+    }
     if (!clientId || !clientSecret || !formId) {
       console.error('Missing Wix environment variables');
       throw new PublicError('טופס הפנייה עדיין אינו מחובר. אפשר ליצור קשר ישירות דרך האתר.', 503);
