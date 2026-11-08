@@ -921,3 +921,70 @@ body.page-technologies .capability-services__grid figure img { display:block; mi
 }
 .page-contact .contact-form .form-status:not(#t) { margin:14px 0 0!important; padding:0!important; }
 .page-contact .contact-form .form-status:empty:not(#t) { display:none; }
+
+/* Accessibility basics: skip link and a visible keyboard focus everywhere. */
+.skip-link { position:absolute; inset-inline-start:16px; top:-100px; z-index:1000; padding:12px 18px; background:var(--black,#252833); color:#fff; font:500 15px "Rubik",Arial,sans-serif; text-decoration:none; }
+.skip-link:focus { top:12px; }
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible { outline:2px solid var(--orange,#ff7100); outline-offset:3px; }
+
+/* Homepage hero: pause control for the background video. */
+.hero-video-toggle {
+  position:absolute; z-index:5; inset-inline-start:clamp(16px,3vw,40px); bottom:clamp(16px,3vw,36px);
+  display:grid; place-items:center; width:44px; height:44px; padding:0; border:1px solid rgba(255,255,255,.55); border-radius:50%;
+  background:rgba(37,40,51,.45); color:#fff; cursor:pointer; transition:background .2s ease, border-color .2s ease;
+}
+.hero-video-toggle:hover { background:rgba(37,40,51,.75); border-color:#fff; }
+.hero-video-toggle__pause { width:12px; height:14px; border-inline:4px solid currentColor; box-sizing:border-box; }
+.hero-video-toggle.is-paused .hero-video-toggle__pause { width:0; height:0; border:0; border-block:8px solid transparent; border-inline-start:13px solid currentColor; margin-inline-start:4px; }
+[dir="rtl"] .hero-video-toggle.is-paused .hero-video-toggle__pause { transform:scaleX(-1); margin-inline-start:0; margin-inline-end:4px; }
+
+/* Legal pages: accessibility statement and privacy policy. */
+.legal-page { max-width:760px; margin:0 auto; padding:clamp(56px,8vw,120px) var(--pad,24px) clamp(64px,8vw,120px); color:var(--ink,#252833); font-family:"Rubik",Arial,sans-serif; }
+.legal-page__eyebrow { color:var(--orange,#ff7100); font-size:13px; letter-spacing:.04em; }
+.legal-page h1 { margin:14px 0 22px; font-size:var(--type-h1); font-weight:300; line-height:1.02; letter-spacing:-.035em; }
+.legal-page h2 { margin:44px 0 12px; font-size:var(--type-h3); font-weight:400; line-height:1.2; letter-spacing:-.01em; }
+.legal-page p, .legal-page li, .legal-page dd, .legal-page dt { font-size:17px; line-height:1.7; color:#4a4d52; }
+.legal-page .legal-page__lead { font-size:19px; color:var(--ink,#252833); }
+.legal-page ul { margin:0; padding-inline-start:22px; }
+.legal-page li { margin:6px 0; }
+.legal-page a { color:inherit; text-decoration:underline; text-decoration-color:var(--orange,#ff7100); text-underline-offset:4px; }
+.legal-page__contact { display:grid; grid-template-columns:max-content 1fr; gap:10px 28px; margin:22px 0 0; padding:24px 0 0; border-top:1px solid #d2d0ca; }
+.legal-page__contact dt { color:var(--ink,#252833); font-weight:500; }
+.legal-page__contact dd { margin:0; }
+.lang-en .legal-page { direction:ltr; text-align:left; }
+
+/* Site-wide bottom row: copyright, legal pages and social links. */
+.site-legal {
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px 28px;
+  padding:18px max(24px,5vw); background:#1d1f27; color:rgba(255,255,255,.72); font:400 14px/1.5 "Rubik",Arial,sans-serif;
+}
+.site-legal nav { display:flex; flex-wrap:wrap; gap:8px 24px; }
+.site-legal a { color:#fff; text-decoration:none; border-bottom:1px solid transparent; }
+.site-legal a:hover { border-bottom-color:var(--orange,#ff7100); }
+.lang-en .site-legal, html[lang="en"] .site-legal { direction:ltr; }
+@media (max-width:620px) { .site-legal { flex-direction:column; align-items:flex-start; padding:18px 22px 22px; } }
+
+/* WCAG AA contrast with the brand orange (#ff7100 fails on white, and white fails on it).
+   Large orange text uses a slightly deeper orange (3:1+), small orange text a darker one (4.5:1+),
+   and text sitting on an orange background is dark ink (5.3:1). */
+:root { --orange-text-large:#e65f00; --orange-text:#b84a00; }
+:is(.accent, h1 em, h2 em, .process-intro h2 em):not(#t) { color:var(--orange-text-large)!important; }
+.topbar.is-solid > nav a:is([aria-current="page"], :hover):not(#t),
+:is(.services-index span, .service-row__index, .service-index, .not-found__code, .legal-page__eyebrow, .field-required, .process-step-group > span):not(#t) { color:var(--orange-text)!important; }
+:is(.site-cta, .site-cta *, .site-ending .business-location-footer, .site-ending .business-location-footer *, .cut-button, .cut-button *, .primary-action, .primary-action *, .materials-button, .materials-button *, .not-found__action, .not-found__action *):not(#t) { color:var(--ink,#252833)!important; }
+:is(.site-cta, .site-ending .business-location-footer, .cut-button, .primary-action, .materials-button, .not-found__action) svg:not(#t) { stroke:currentColor; }
+.site-ending .business-location-footer .business-directions:not(#t) { border-bottom-color:currentColor!important; }
+/* Remaining small orange labels, and the accent word inside the orange CTA block. */
+:is(.process li .process-step-group > span, .process li > span, .materials-copy span, .process-panel dt, .materials-criteria__grid article > span, .materials-library__tab, .cap-more, .language-options button > span, h3 em, .is-active > span):not(#t) { color:var(--orange-text)!important; }
+.site-cta .site-cta__content h2 em:not(#t) { color:var(--ink,#252833)!important; }
+#service-clarity-title > span:not(#t) { color:var(--orange-text-large)!important; }
+.process-panel--fdm > header > span:not(#t) { color:#ff7100!important; }
+.process-panel--msla > header > span:not(#t) { color:var(--ink,#252833)!important; }
+/* Dark-background buttons inside orange areas keep white text. */
+:is(.site-cta .site-cta__action, .site-cta .site-cta__action *, .materials-button--dark, .materials-button--dark *):not(#t) { color:#fff!important; }
+/* Hero copy over the video: solid white for reliable contrast. */
+:is(.hero .hero-lead, .hero .hero-secondary, .hero .hero-micro):not(#t) { color:#fff!important; }
+/* Privacy notice at the point of collection, right under the submit button. */
+.page-contact .contact-form .form-privacy-note:not(#t) { margin:14px 0 0; color:#686b70; font:400 13px/1.6 "Rubik",Arial,sans-serif; }
+.page-contact .contact-form.is-sent .form-privacy-note { display:none; }
+.lang-en.page-contact .form-privacy-note { direction:ltr; text-align:left; }

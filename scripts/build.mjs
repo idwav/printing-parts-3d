@@ -1,7 +1,8 @@
 import { cpSync, mkdirSync, readdirSync, rmSync } from 'node:fs';
 
 const OUTPUT = 'dist';
-const isPublicRootFile = (name) => name === '_redirects' || /\.(html|css|js)$/.test(name);
+const ROOT_FILES = new Set(['_redirects', 'robots.txt', 'sitemap.xml', 'favicon.svg', 'apple-touch-icon.png']);
+const isPublicRootFile = (name) => ROOT_FILES.has(name) || /\.(html|css|js)$/.test(name);
 
 rmSync(OUTPUT, { recursive: true, force: true });
 mkdirSync(OUTPUT);

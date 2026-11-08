@@ -6,18 +6,30 @@
   <meta name="theme-color" content="#252833">
   <meta name="description" content="Printing Parts 3D — תכנון, פיתוח וייצור חלקים בהדפסת תלת־ממד לתעשייה.">
   <title>Printing Parts 3D — הנדסה שמקבלת צורה</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.typekit.net/hop1eit.css">
-  <link rel="stylesheet" href="styles.css?v=20261014-1">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://www.printingparts3d.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Printing Parts 3D">
+  <meta property="og:locale" content="he_IL">
+  <meta property="og:title" content="Printing Parts 3D — הנדסה שמקבלת צורה">
+  <meta property="og:description" content="Printing Parts 3D — תכנון, פיתוח וייצור חלקים בהדפסת תלת־ממד לתעשייה.">
+  <meta property="og:url" content="https://www.printingparts3d.com/">
+  <meta property="og:image" content="https://www.printingparts3d.com/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  
+  <link rel="preload" href="assets/fonts/rubik/rubik-hebrew.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="fonts.css?v=20261108-1"><link rel="stylesheet" href="styles.css?v=20261014-1">
   <link rel="stylesheet" href="shared-header.css?v=20261019-smooth-scroll">
   <link rel="stylesheet" href="shared-cta.css?v=20261019-footer-blue-divider">
   <script>document.documentElement.classList.add('motion-ready')</script>
-  <link rel="stylesheet" href="responsive.css?v=20261108-5">
+  <link rel="stylesheet" href="responsive.css?v=20261108-13">
   <link rel="stylesheet" href="service-clarity.css?v=20261019-1">
 </head>
 <body>
+  <a class="skip-link" href="#top">דלג לתוכן הראשי</a>
   <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;overflow:hidden">
     <defs>
       <clipPath id="brand-stepped-rounded" clipPathUnits="objectBoundingBox">
@@ -44,7 +56,7 @@
   </header>
   <main id="top">
     <section class="hero">
-      <video class="hero-media" autoplay muted loop playsinline poster="assets/plates/hero-video.jpg"><source src="assets/video/hero-beni-web.mp4" type="video/mp4"></video>
+      <video class="hero-media" aria-hidden="true" autoplay muted loop playsinline poster="assets/plates/hero-video.jpg"><source src="assets/video/hero-beni-web.mp4" type="video/mp4"></video><button class="hero-video-toggle" type="button" aria-pressed="false" aria-label="השהיית סרטון הרקע"><span class="hero-video-toggle__pause" aria-hidden="true"></span></button>
       <div class="hero-overlay"></div><div class="hero-grid"></div>
       <div class="hero-copy">
         <div class="hero-text">
@@ -75,7 +87,6 @@
         <p>בכל פרויקט אנחנו מחברים בין דרישות השימוש, התכנון ויכולות הייצור, כדי לעזור לכם להתקדם עם החלטות ברורות.</p>
         <a class="text-link" href="about.html">על הדרך שלנו <span>←</span></a>
         </div>
-
       </div>
       <figure class="statement-image brand-frame-test"><img src="assets/plates/functional-part-caliper-inspection.webp" width="1122" height="1402" alt="בדיקת מידות של מכלול מודפס פונקציונלי באמצעות קליבר דיגיטלי" loading="lazy"><i class="corner-plus corner-plus--tr" aria-hidden="true">+</i><i class="corner-plus corner-plus--tl" aria-hidden="true">+</i><i class="corner-plus corner-plus--br" aria-hidden="true">+</i><i class="corner-plus corner-plus--bl" aria-hidden="true">+</i></figure>
     </section>
@@ -208,6 +219,8 @@
       }
     };
     const setLanguage = (lang) => {
+      document.querySelector('.skip-link').textContent = lang === 'en' ? 'Skip to main content' : 'דלג לתוכן הראשי';
+      document.querySelector('.hero-video-toggle')?.dispatchEvent(new Event('relabel'));
       const t = translations[lang];
       document.querySelector('#service-clarity-title').innerHTML=lang==='en'?'We don’t sell printers.<br><span>We design and produce the part you need.</span>':'לא מוכרים מדפסות.<br><span>מתכננים ומייצרים את החלק שאתם צריכים.</span>';
       document.querySelector('.service-clarity p').textContent=lang==='en'?'Engineering, design and 3D printing services — from your idea or file to the finished part.':'שירותי הנדסה, תכנון והדפסת תלת־ממד — מהרעיון או הקובץ שלכם ועד לחלק המוגמר.';
@@ -258,7 +271,6 @@
     const initialLanguage = localStorage.getItem('pp3d-language') || 'he';
     setLanguage(initialLanguage);
     document.querySelector('.language-select').addEventListener('change',event=>setLanguage(event.target.value));
-
     const topbar = document.querySelector('.topbar');
     const hero = document.querySelector('.hero');
     const updateHeader = () => {
@@ -272,7 +284,6 @@
     window.addEventListener('resize', updateHeader);
     window.addEventListener('pageshow', updateHeader);
     updateHeader();
-
     const revealItems = [
       ...document.querySelectorAll('.hero .eyebrow, .hero h1, .hero-lead, .hero .cut-button'),
       ...document.querySelectorAll('.trusted-copy, .trusted-logos figure, .statement-copy, .statement-image, .section-heading, .materials-heading, .materials-copy, .material-grid article, .services-head, .service-card, .contact-cta > *'),
@@ -294,7 +305,6 @@
       });
     }, { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
     revealItems.forEach(item => observer.observe(item));
-
     const processSection = document.querySelector('.process');
     if (processSection) {
       const processImages = [...processSection.querySelectorAll('.process-visual img')];
@@ -366,25 +376,21 @@
         const rect = processSection.getBoundingClientRect();
         const isPinned = rect.top <= 1 && rect.bottom >= window.innerHeight - 1;
         if (!isPinned || Math.abs(event.deltaY) < 2) return;
-
         const direction = event.deltaY > 0 ? 1 : -1;
         const lastProcessStep = processSteps.length;
         if ((direction < 0 && activeProcessStep <= 0) || (direction > 0 && activeProcessStep >= lastProcessStep)) {
           return;
         }
-
         event.preventDefault();
         clearTimeout(processWheelRelease);
         processWheelRelease = setTimeout(() => { processWheelLocked = false; }, 190);
         if (processWheelLocked || processAnimating) return;
         processWheelLocked = true;
-
         const stateCount = processSteps.length + 1;
         const travel = Math.max(1, processSection.offsetHeight - window.innerHeight);
         const sectionTop = window.scrollY + rect.top;
         const targetStep = activeProcessStep + direction;
         let targetY;
-
         if (targetStep < 0) {
           targetY = sectionTop - Math.min(window.innerHeight * .72, 720);
         } else if (targetStep >= stateCount) {
@@ -394,12 +400,31 @@
           targetY = sectionTop + targetProgress * travel;
           renderProcessStep(targetStep);
         }
-
         smoothProcessScrollTo(targetY);
       }, { passive:false });
       updateProcess();
     }
   </script>
-  <script src="language-menu.js?v=20261019-wheel-inertia"></script>
+  <script src="language-menu.js?v=20261108-1"></script>
+  <script>
+    (() => {
+      const video = document.querySelector('.hero-media');
+      const toggle = document.querySelector('.hero-video-toggle');
+      if (!video || !toggle) return;
+      const label = () => {
+        const en = document.documentElement.lang === 'en';
+        const paused = video.paused;
+        toggle.setAttribute('aria-pressed', String(paused));
+        toggle.setAttribute('aria-label', paused ? (en ? 'Play background video' : 'הפעלת סרטון הרקע') : (en ? 'Pause background video' : 'השהיית סרטון הרקע'));
+        toggle.classList.toggle('is-paused', paused);
+      };
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) video.pause();
+      toggle.addEventListener('click', () => { video.paused ? video.play() : video.pause(); });
+      video.addEventListener('play', label);
+      video.addEventListener('pause', label);
+      toggle.addEventListener('relabel', label);
+      label();
+    })();
+  </script>
 </body>
 </html>
