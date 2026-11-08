@@ -19,11 +19,9 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.typekit.net/hop1eit.css">
-  <link rel="stylesheet" href="styles.css?v=20261014-1">
+  
+  
+  <link rel="preload" href="assets/fonts/rubik/rubik-hebrew.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="fonts.css?v=20261108-1"><link rel="stylesheet" href="styles.css?v=20261014-1">
   <link rel="stylesheet" href="shared-header.css?v=20261019-smooth-scroll">
   <link rel="stylesheet" href="shared-cta.css?v=20261019-footer-blue-divider">
   <script>document.documentElement.classList.add('motion-ready')</script>
@@ -89,7 +87,6 @@
         <p>בכל פרויקט אנחנו מחברים בין דרישות השימוש, התכנון ויכולות הייצור, כדי לעזור לכם להתקדם עם החלטות ברורות.</p>
         <a class="text-link" href="about.html">על הדרך שלנו <span>←</span></a>
         </div>
-
       </div>
       <figure class="statement-image brand-frame-test"><img src="assets/plates/functional-part-caliper-inspection.webp" width="1122" height="1402" alt="בדיקת מידות של מכלול מודפס פונקציונלי באמצעות קליבר דיגיטלי" loading="lazy"><i class="corner-plus corner-plus--tr" aria-hidden="true">+</i><i class="corner-plus corner-plus--tl" aria-hidden="true">+</i><i class="corner-plus corner-plus--br" aria-hidden="true">+</i><i class="corner-plus corner-plus--bl" aria-hidden="true">+</i></figure>
     </section>
@@ -274,7 +271,6 @@
     const initialLanguage = localStorage.getItem('pp3d-language') || 'he';
     setLanguage(initialLanguage);
     document.querySelector('.language-select').addEventListener('change',event=>setLanguage(event.target.value));
-
     const topbar = document.querySelector('.topbar');
     const hero = document.querySelector('.hero');
     const updateHeader = () => {
@@ -288,7 +284,6 @@
     window.addEventListener('resize', updateHeader);
     window.addEventListener('pageshow', updateHeader);
     updateHeader();
-
     const revealItems = [
       ...document.querySelectorAll('.hero .eyebrow, .hero h1, .hero-lead, .hero .cut-button'),
       ...document.querySelectorAll('.trusted-copy, .trusted-logos figure, .statement-copy, .statement-image, .section-heading, .materials-heading, .materials-copy, .material-grid article, .services-head, .service-card, .contact-cta > *'),
@@ -310,7 +305,6 @@
       });
     }, { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
     revealItems.forEach(item => observer.observe(item));
-
     const processSection = document.querySelector('.process');
     if (processSection) {
       const processImages = [...processSection.querySelectorAll('.process-visual img')];
@@ -382,25 +376,21 @@
         const rect = processSection.getBoundingClientRect();
         const isPinned = rect.top <= 1 && rect.bottom >= window.innerHeight - 1;
         if (!isPinned || Math.abs(event.deltaY) < 2) return;
-
         const direction = event.deltaY > 0 ? 1 : -1;
         const lastProcessStep = processSteps.length;
         if ((direction < 0 && activeProcessStep <= 0) || (direction > 0 && activeProcessStep >= lastProcessStep)) {
           return;
         }
-
         event.preventDefault();
         clearTimeout(processWheelRelease);
         processWheelRelease = setTimeout(() => { processWheelLocked = false; }, 190);
         if (processWheelLocked || processAnimating) return;
         processWheelLocked = true;
-
         const stateCount = processSteps.length + 1;
         const travel = Math.max(1, processSection.offsetHeight - window.innerHeight);
         const sectionTop = window.scrollY + rect.top;
         const targetStep = activeProcessStep + direction;
         let targetY;
-
         if (targetStep < 0) {
           targetY = sectionTop - Math.min(window.innerHeight * .72, 720);
         } else if (targetStep >= stateCount) {
@@ -410,7 +400,6 @@
           targetY = sectionTop + targetProgress * travel;
           renderProcessStep(targetStep);
         }
-
         smoothProcessScrollTo(targetY);
       }, { passive:false });
       updateProcess();
