@@ -893,3 +893,31 @@ body.page-technologies .capability-services__grid figure img { display:block; mi
 .page-contact .contact-form .field input[type="tel"]:not(#t) { direction:ltr; text-align:right; }
 .lang-en.page-contact .contact-form .field input[type="email"]:not(#t),
 .lang-en.page-contact .contact-form .field input[type="tel"]:not(#t) { text-align:left; }
+
+/* Contact form as one grouped form: no row dividers, even spacing, button right after the fields. */
+.page-contact .contact-form:not(#t) {
+  display:flex!important; flex-direction:column; justify-content:center;
+  padding:clamp(36px,5vw,80px) clamp(24px,4.5vw,72px)!important; height:auto!important;
+}
+.page-contact .contact-form .form-grid:not(#t) {
+  display:grid; grid-template-columns:1fr!important; grid-template-rows:none!important; grid-auto-rows:auto!important;
+  row-gap:clamp(22px,2.4vw,30px); flex:0 0 auto!important; height:auto!important; min-height:0; border:0;
+}
+.page-contact .contact-form .form-grid .field:not(#t) {
+  min-height:0!important; padding:0!important; border:0!important; place-items:start stretch;
+}
+.page-contact .contact-form .form-grid .field-project:not(#t) { min-height:0!important; }
+.page-contact .contact-form .form-grid .file-field:not(#t) { margin-top:4px; }
+.page-contact .contact-form .file-field > label:not(#t) {
+  min-height:58px!important; height:auto; padding:0 20px!important;
+  border:1px dashed #9a9da3; color:var(--ink); font:500 15px "Rubik",Arial,sans-serif;
+  transition:border-color .2s ease, background-color .2s ease; cursor:pointer;
+}
+.page-contact .contact-form .file-field > label:hover:not(#t),
+.page-contact .contact-form .file-field > input:focus-visible + label:not(#t) { border-color:var(--orange); background:#fff8f2; }
+.page-contact .contact-form .primary-action:not(#t) {
+  width:100%!important; min-height:64px!important; margin:clamp(28px,3vw,40px) 0 0!important;
+  padding:0 26px!important; font-size:17px!important; flex-shrink:0;
+}
+.page-contact .contact-form .form-status:not(#t) { margin:14px 0 0!important; padding:0!important; }
+.page-contact .contact-form .form-status:empty:not(#t) { display:none; }
