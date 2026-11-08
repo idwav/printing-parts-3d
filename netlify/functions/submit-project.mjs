@@ -175,13 +175,13 @@ function json(body, status = 200) {
   });
 }
 
-export default async function handler(request) {
+export async function handleSubmission(request, env) {
   if (request.method !== 'POST') return json({ ok: false, message: 'Method not allowed' }, 405);
 
   try {
-    const clientId = process.env.WIX_CLIENT_ID;
-    const clientSecret = process.env.WIX_CLIENT_SECRET;
-    const formId = process.env.WIX_FORM_ID;
+    const clientId = env.WIX_CLIENT_ID;
+    const clientSecret = env.WIX_CLIENT_SECRET;
+    const formId = env.WIX_FORM_ID;
     if (!clientId || !clientSecret || !formId) {
       console.error('Missing Wix environment variables');
       throw new PublicError('טופס הפנייה עדיין אינו מחובר. אפשר ליצור קשר ישירות דרך האתר.', 503);
@@ -209,6 +209,10 @@ export default async function handler(request) {
       message: error instanceof PublicError ? error.message : 'אירעה שגיאה בשליחת הפנייה. נסו שוב בעוד כמה דקות.',
     }, error instanceof PublicError ? error.status : 500);
   }
+}
+
+export default function handler(request) {
+  return handleSubmission(request, process.env);
 }
 
 export const config = { path: '/api/submit-project' };

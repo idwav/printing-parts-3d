@@ -825,3 +825,12 @@ body.page-technologies .capability-services__grid figure img { display:block; mi
   body.mobile-menu-open .topbar nav .mobile-instagram { display:flex!important; align-items:center; gap:14px; }
   .topbar nav .mobile-instagram svg { width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:1.6; flex-shrink:0; }
 }
+
+/* Not-found page. */
+.not-found { display:flex; flex-direction:column; align-items:flex-start; justify-content:center; min-height:calc(100svh - 92px); padding:clamp(48px,8vw,120px) var(--pad); background:#fff; color:var(--black); }
+.not-found__code { color:var(--orange); font-size:14px; letter-spacing:.12em; }
+.not-found h1 { margin:16px 0 18px; font-family:"Rubik",Arial,sans-serif; font-size:var(--type-h1); font-weight:300; line-height:1.02; letter-spacing:-.035em; }
+.not-found p { margin:0 0 32px; color:#686b70; font-size:18px; line-height:1.6; }
+.not-found__action { display:inline-flex; align-items:center; gap:24px; min-height:60px; padding:0 26px; background:var(--orange); color:#fff; font-size:15px; font-weight:500; text-decoration:none; clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px); }
+.not-found__action b { font-weight:400; }
+.lang-en .not-found { direction:ltr; text-align:left; }

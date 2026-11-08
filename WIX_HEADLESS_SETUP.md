@@ -1,6 +1,6 @@
 # Wix Headless form setup
 
-The public website remains hosted on Netlify. Wix is used as the protected business-data backend for project enquiries.
+The public website is hosted on Cloudflare Pages. Wix is used as the protected business-data backend for project enquiries.
 
 ## 1. Create the Wix form
 
@@ -22,7 +22,7 @@ In the Wix dashboard for project `82253800-6895-427d-a2ff-50d61b830877`:
 | `long_answer_1835` | Additional requirements |
 | `file_upload_292c` | Uploaded project file |
 
-4. Form ID: `51af4f13-f6d2-4511-a6dc-e458df274161`. It is stored as `WIX_FORM_ID` in Netlify.
+4. Form ID: `51af4f13-f6d2-4511-a6dc-e458df274161`. It is stored as `WIX_FORM_ID` in Cloudflare.
 
 ## 2. Create Wix server credentials
 
@@ -31,11 +31,11 @@ In **Headless Settings**, create a client secret for the existing OAuth client.
 - Client ID: `1db002e9-d9cc-4317-b122-59a71e3df405`
 - Required permission: **Manage Submissions**
 
-The secret is displayed once. Store it directly in Netlify and do not commit it to Git.
+The secret is displayed once. Store it directly in Cloudflare and do not commit it to Git.
 
-## 3. Configure Netlify
+## 3. Configure Cloudflare Pages
 
-Open the Netlify site settings, then add these environment variables for the Functions scope:
+Create a Pages project connected to the GitHub repository with `npm run build` as the build command and `dist` as the build output directory. In **Settings > Variables and Secrets**, add these for both Production and Preview, marking `WIX_CLIENT_SECRET` as a secret:
 
 ```text
 WIX_CLIENT_ID=1db002e9-d9cc-4317-b122-59a71e3df405
@@ -47,7 +47,7 @@ Trigger a new production deploy after adding or changing the variables.
 
 ## 4. Verify
 
-1. Open `contact.html` on the Netlify preview URL.
+1. Open `contact.html` on the `pages.dev` URL.
 2. Submit a test enquiry without a file.
 3. Confirm that it appears under Wix Forms submissions.
 4. Submit another enquiry with a small supported file.
@@ -57,4 +57,4 @@ The form accepts STL, STEP, STP, OBJ, PDF, DWG, IGES, IGS, JPG, JPEG, and PNG fi
 
 ## Domain migration
 
-Do not connect the production domain to Wix. The production domain should point to Netlify because Netlify serves the frontend. Wix remains the headless backend. Change DNS only after the preview URL and form workflow pass the verification steps above.
+The production domain should point to Cloudflare Pages, which serves the frontend. Wix remains the headless backend. The apex domain requires Cloudflare to manage the zone's nameservers, so before changing them, copy every existing DNS record, including the Google MX, SPF and verification records. Change DNS only after the `pages.dev` URL and form workflow pass the verification steps above.
