@@ -6,14 +6,11 @@ const WIX_SUBMISSION_URL = 'https://www.wixapis.com/form-submission-service/v4/s
 const WIX_MEDIA_URL = `${WIX_SUBMISSION_URL}/media-upload-url`;
 // Field keys of the "Project enquiry" form in Wix Forms (each field's settings show its key).
 const WIX_FIELD_TARGETS = Object.freeze({
-  firstName: 'first_name',
-  lastName: 'last_name',
+  fullName: 'form_field',
   email: 'email',
-  phone: 'phone',
-  jobTitle: 'job_title',
-  subject: 'subject',
-  message: 'long_answer',
-  file: 'file_upload',
+  phone: 'form_field_2',
+  message: 'form_field_3',
+  file: 'form_field_4',
 });
 const ALLOWED_EXTENSIONS = new Set([
   'stl', 'step', 'stp', 'obj', 'pdf', 'dwg', 'iges', 'igs', 'jpg', 'jpeg', 'png',
@@ -50,12 +47,13 @@ export function validateSubmission(values, file, now = Date.now()) {
   const loadedAt = Number(values.loadedAt);
   if (Number.isFinite(loadedAt) && now - loadedAt < MIN_FILL_TIME_MS) return { spam: true };
 
-  const firstName = clean(values.firstName, 100);
+  const fullName = clean(values.fullName, 160);
   const email = clean(values.email, 254).toLowerCase();
   const phone = normalizePhone(values.phone);
+  const message = clean(values.message);
 
-  if (!firstName || !email || !phone) {
-    throw new PublicError('נא למלא שם, אימייל וטלפון.');
+  if (!fullName || !email || !message) {
+    throw new PublicError('נא למלא שם, אימייל ותיאור הפרויקט.');
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     throw new PublicError('כתובת האימייל אינה תקינה.');
@@ -68,15 +66,7 @@ export function validateSubmission(values, file, now = Date.now()) {
 
   return {
     spam: false,
-    data: {
-      firstName,
-      lastName: clean(values.lastName, 100),
-      email,
-      phone,
-      jobTitle: clean(values.jobTitle, 160),
-      subject: clean(values.subject, 200),
-      message: clean(values.message),
-    },
+    data: { fullName, email, phone, message },
   };
 }
 

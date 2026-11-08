@@ -6,18 +6,15 @@ The public website is hosted on Cloudflare Pages. Wix is used as the protected b
 
 In the client's Wix dashboard, open **Forms & Submissions** and create a new standalone form named `Project enquiry` with these fields. The site's previous contact form uses the legacy Wix Forms app, which this integration cannot write to.
 
-| Website field | Wix field type | Required |
+| Website field | Wix field key | Required |
 | --- | --- | --- |
-| First name | First name | Yes |
-| Last name | Last name | |
-| Email | Email | Yes |
-| Phone | Phone | Yes |
-| Job title | Short answer | |
-| Subject | Short answer | |
-| Project description | Long answer | |
-| File | File upload (STL, STEP, STP, OBJ, PDF, DWG, IGES, IGS, JPG, PNG) | |
+| Full name | `form_field` | Yes |
+| Email | to be confirmed | Yes |
+| Phone | `form_field_2` | |
+| Subject / project description | `form_field_3` | Yes |
+| File | `form_field_4` | |
 
-Wix generates a key for every field. Copy each key from the field's settings into `WIX_FIELD_TARGETS` in `netlify/functions/submit-project.mjs`; the values there now are placeholders. Store the form ID as `WIX_FORM_ID` in Cloudflare.
+Wix generates a key for every field. The keys are set in `WIX_FIELD_TARGETS` in `netlify/functions/submit-project.mjs`; update both places if the Wix form changes. Store the form ID as `WIX_FORM_ID` in Cloudflare.
 
 ## 2. Create Wix server credentials
 

@@ -9,7 +9,8 @@ import {
 } from '../netlify/functions/submit-project.mjs';
 
 const validValues = {
-  firstName: 'ישראל', email: 'Test@Example.com', phone: '050-123-4567', loadedAt: '1000',
+  fullName: 'ישראל ישראלי', email: 'Test@Example.com', phone: '050-123-4567',
+  message: 'חלק מכני לסדרה קטנה', loadedAt: '1000',
 };
 
 test('normalizes a valid project submission', () => {
@@ -32,22 +33,23 @@ test('rejects unsupported files', () => {
   assert.throws(() => validateSubmission(validValues, { name: 'payload.exe', size: 100 }, 5000), /סוג הקובץ אינו נתמך/);
 });
 
-test('requires a first name, email and phone', () => {
-  assert.throws(() => validateSubmission({ ...validValues, phone: '' }, null, 5000), /נא למלא שם, אימייל וטלפון/);
+test('requires a name, email and project description', () => {
+  assert.throws(() => validateSubmission({ ...validValues, message: '' }, null, 5000), /נא למלא שם, אימייל ותיאור הפרויקט/);
+});
+
+test('accepts a submission without a phone number', () => {
+  assert.equal(validateSubmission({ ...validValues, phone: '' }, null, 5000).data.phone, '');
 });
 
 test('maps form fields to Wix targets and removes empty ones', () => {
   const map = buildSubmissionMap({
-    firstName: 'Tom', lastName: '', email: 'tom@example.com', phone: '+972501234567',
-    jobTitle: '', subject: 'Bracket', message: 'Ten units',
+    fullName: 'Tom Cohen', email: 'tom@example.com', phone: '', message: 'Ten brackets',
   }, 'https://upload.example/file');
   assert.deepEqual(map, {
-    first_name: 'Tom',
+    form_field: 'Tom Cohen',
     email: 'tom@example.com',
-    phone: '+972501234567',
-    subject: 'Bracket',
-    long_answer: 'Ten units',
-    file_upload: 'https://upload.example/file',
+    form_field_3: 'Ten brackets',
+    form_field_4: 'https://upload.example/file',
   });
 });
 
@@ -75,11 +77,11 @@ test('rejects non-POST requests', async () => {
 });
 
 test('reports a missing Wix configuration from the injected environment', async () => {
-  const response = await handleSubmission(formRequest({ firstName: 'x' }), {});
+  const response = await handleSubmission(formRequest({ fullName: 'x' }), {});
   assert.equal(response.status, 503);
 });
 
 test('reads the Wix configuration from the injected environment', async () => {
-  const response = await handleSubmission(formRequest({ firstName: 'x' }), wixEnv);
+  const response = await handleSubmission(formRequest({ fullName: 'x' }), wixEnv);
   assert.equal(response.status, 400);
 });
