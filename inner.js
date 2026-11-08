@@ -126,6 +126,7 @@ const englishCopy = {
   "אם נתקלתם בקושי בגלישה באתר, נשמח שתעדכנו אותנו ונפעל לתקן אותו בהקדם. כדי שנוכל לטפל בפנייה, כדאי לציין את העמוד, את הבעיה ואת הדפדפן או הטכנולוגיה המסייעת שבהם השתמשתם.":"If you have difficulty using the site, please let us know and we will work to fix it promptly. It helps to mention the page, the problem and the browser or assistive technology you used.",
   "רכז/ת נגישות":"Accessibility coordinator",
   "בני שמעון":"Beni Shimon",
+  "הפרטים שתמסרו ישמשו רק לטיפול בפנייה ולחזרה אליכם, ולא יועברו לצדדים שלישיים לצורכי שיווק.":"The details you provide will be used only to handle your request and reply to you, and will not be passed to third parties for marketing.",
   "כתובת":"Address",
   "מדיניות זו מסבירה איזה מידע אנחנו אוספים כשאתם גולשים באתר Printing Parts 3D או פונים אלינו דרכו, ומה אנחנו עושים בו.":"This policy explains what information we collect when you browse the Printing Parts 3D website or contact us through it, and what we do with it.",
   "איזה מידע נאסף":"What we collect",

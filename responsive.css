@@ -984,3 +984,7 @@ body.page-technologies .capability-services__grid figure img { display:block; mi
 :is(.site-cta .site-cta__action, .site-cta .site-cta__action *, .materials-button--dark, .materials-button--dark *):not(#t) { color:#fff!important; }
 /* Hero copy over the video: solid white for reliable contrast. */
 :is(.hero .hero-lead, .hero .hero-secondary, .hero .hero-micro):not(#t) { color:#fff!important; }
+/* Privacy notice at the point of collection, right under the submit button. */
+.page-contact .contact-form .form-privacy-note:not(#t) { margin:14px 0 0; color:#686b70; font:400 13px/1.6 "Rubik",Arial,sans-serif; }
+.page-contact .contact-form.is-sent .form-privacy-note { display:none; }
+.lang-en.page-contact .form-privacy-note { direction:ltr; text-align:left; }
